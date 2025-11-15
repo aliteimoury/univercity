@@ -1,5 +1,8 @@
 <?php
   include 'islogin.php';
+  if ($_SESSION['role']=="مدرس") {
+    header("Location: teacher.php");
+  }
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +16,9 @@
 <body>
     <div class="divheader">
         <p class="pheader">سامانه بوستان  - دانشجویان ابن حسام</p>
+        <?php
+        echo "<p class='pheader'>خوش آمدید ",$_SESSION['username'],"</p>";
+        ?>
         <img class="imgheader" src="logo.jpg" >
       </div>
     
@@ -46,6 +52,9 @@
               <li>ویرایش اطلاعات</li>
               <li>تغییر رمز عبور</li>
             </ul>
+          </li>
+          <li>
+            <a href="logout.php" style="color:red; text-decoration:none;">🔴 خروج</a>
           </li>
         </ul>
       </div>

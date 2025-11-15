@@ -13,6 +13,7 @@
             if (password_verify($password, $user['password'])) {
 
                 $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username']=$user['name'];
                 $_SESSION['user_email'] = $email;
                 $_SESSION['loggedin'] = true;
                 $_SESSION['role'] = $user['role'];
@@ -23,7 +24,7 @@
                     <p>در حال انتقال به صفحه اصلی...</p>
                     </body>
                 </html>";
-                header("Refresh: 3; url=main.html");
+                header("Refresh: 3; url=Role.php");
             }
             else {
                 echo"<html>
@@ -47,7 +48,7 @@
         }
     }
     else {
-        header("Location: login.php");
+        header("Location: login.html");
         exit();
     }
 ?>

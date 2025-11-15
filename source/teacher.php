@@ -1,3 +1,9 @@
+<?php
+  include 'islogin.php';
+  if ($_SESSION['role']=="دانشجو") {
+    header("Location: student.php");
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,31 +14,37 @@
 </head>
 <body>
     <div class="divheader">
-        <p class="pheader">سامانه بوستان  - دانشجویان ابن حسام</p>
+        <p class="pheader">سامانه بوستان  - اساتید ابن حسام</p>
+        <?php
+        echo "<p class='pheader'>خوش آمدید ",$_SESSION['username'],"</p>";
+        ?>
         <img class="imgheader" src="logo.jpg" >
+        
       </div>
     
     <div class="div-container">
       <div class="divmenu">
         <ul>
-          <li>🏠 صفحه‌ نخست
+          <li>🏠 صفحه‌ اصلی 
             <ul>
               <li>اعلان‌ها</li>
-              <li>اخبار سامانه</li>
+              <li>اخبار سامانه </li>
             </ul>
           </li>
       
           <li>📘 امور آموزشی
             <ul>
+              <li>اطلاع رسانی </li>
               <li>ثبت‌نام دروس</li>
-              <li>کارنامه آموزشی</li>
+              <li>درس های اخذ شده</li>
               <li>برنامه هفتگی</li>
+              <li>حضور و غیاب دروس </li>
             </ul>
           </li>
     
           <li>💰 امور مالی
             <ul>
-              <li>پرداخت شهریه</li>
+              <li>مبلغ هر درس برای مدرس</li>
               <li>سوابق پرداخت</li>
             </ul>
           </li>
@@ -43,9 +55,11 @@
               <li>تغییر رمز عبور</li>
             </ul>
           </li>
+
           <li>
             <a href="logout.php" style="color:red; text-decoration:none;">🔴 خروج</a>
           </li>
+
         </ul>
       </div>
 
