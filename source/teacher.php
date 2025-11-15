@@ -61,7 +61,6 @@
                 <li>
                     <a href="logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
                 </li>
-
             </ul>
         </div>
 
