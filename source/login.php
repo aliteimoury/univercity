@@ -24,7 +24,7 @@
                     <p>در حال انتقال به صفحه اصلی...</p>
                     </body>
                 </html>";
-                header("Refresh: 3; url=Role.php");
+                header("Refresh: 2; url=Role.php");
             }
             else {
                 echo"<html>
@@ -33,7 +33,7 @@
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
-                header("Refresh: 3; url=login.html");
+                header("Refresh: 2; url=login.html");
 
             }
         }
@@ -44,7 +44,7 @@
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
-                header("Refresh: 3; url=login.html");
+                header("Refresh: 2; url=login.html");
         }
     }
     else {
