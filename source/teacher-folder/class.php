@@ -1,5 +1,5 @@
 <?php
-  include 'isteacher.php';
+  include '../isteacher.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bostan</title>
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="../main.css">
+    <link rel="stylesheet" href="class.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
+  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -17,7 +20,7 @@
         <?php
         echo "<p class='nameuser'>",$_SESSION['username']," خوش آمدید </p>";
         ?>
-        <img class="imgheader" src="logo.jpg">
+        <img class="imgheader" src="../logo.jpg">
 
     </div>
 
@@ -34,7 +37,7 @@
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
-                        <li><a href="teacher-folder/class.php" style="text-decoration:none;color:black;">ثبت نام کلاس ها</a></li>
+                        <li><a href="" style="text-decoration:none;color:black;">ثبت نام کلاس ها</a></li>
                         <li>درس های اخذ شده</li>
                         <li>برنامه هفتگی</li>
                         <li>حضور و غیاب دروس </li>
@@ -61,8 +64,39 @@
             </ul>
         </div>
 
-        <div>
-            <iframe class="iframe" src="https://tvu.ac.ir/" frameborder="0"></iframe>
+        <div class="divmain">
+            <div class="">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">شماره</th>
+                        <th scope="col">نام کلای</th>
+                        <th scope="col">تاریخ</th>
+                        <th scope="col">ویرایش</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        </tr>
+                        <tr>
+                        <th scope="row">3</th>
+                        <td>John</td>
+                        <td>Doe</td>
+                        <td>@social</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
     </div>
