@@ -65,7 +65,7 @@
         </div>
 
         <div class="divmain">
-            <div class="">
+            <div class="d-table">
                 <table class="table table-hover">
                     <thead>
                         <tr>
@@ -97,6 +97,8 @@
                     </tbody>
                 </table>
             </div>
+            <span class="line"></span>
+            <button type="button" class="btn btn-secondary">Secondary</button>
         </div>
 
     </div>
