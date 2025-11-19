@@ -27,7 +27,7 @@
     <div class="div-container">
         <div class="divmenu">
             <ul>
-                <li>🏠 صفحه‌ نخست
+                <li><a class="a-tag" href="#">🏠 صفحه‌ اصلی</a>
                     <ul>
                         <li>اعلان‌ها</li>
                         <li>اخبار سامانه</li>

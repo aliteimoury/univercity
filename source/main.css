@@ -100,3 +100,8 @@ background-color: #f8f9fa;
   font-family: monospace;
   text-shadow: 3px 1px 10px rgb(255, 255, 255);
 }
+.a-tag{
+  
+    text-decoration:none;
+    color:black;
+}
