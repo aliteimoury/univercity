@@ -17,8 +17,8 @@
     <div class="divheader">
         <p class="pheader">سامانه بوستان - اساتید ابن حسام</p>
         <?php
+      
         echo "<p class='nameuser'>",$_SESSION['username']," خوش آمدید </p>";
-        ?>
         <img class="imgheader" src="logo.jpg">
 
     </div>
@@ -62,7 +62,6 @@
                 </li>
             </ul>
         </div>
-
         <div>
             <iframe class="iframe" src="https://tvu.ac.ir/" frameborder="0"></iframe>
         </div>
