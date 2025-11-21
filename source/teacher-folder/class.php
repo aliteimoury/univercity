@@ -1,5 +1,6 @@
 <?php
   include 'isteacher.php';
+  unset($_SESSION['delettabale']);
 ?>
 <!DOCTYPE html>
 <html lang="en">

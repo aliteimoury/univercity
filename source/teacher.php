@@ -21,8 +21,6 @@
         echo "<p class='nameuser'>",$_SESSION['username']," خوش آمدید </p>";
         ?>
         <img class="imgheader" src="logo.jpg">
-        >
-    
     </div>
 
     <div class="div-container">

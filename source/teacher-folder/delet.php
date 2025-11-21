@@ -1,20 +1,28 @@
 <?php
     include 'isteacher.php';
 
-    $id=$_SESSION['delettabale'];
-    $teacherid=$_SESSION['user_id'];
-    if ($_SERVER['REQUEST_METHOD']=="POST") {
-        if (isset($_POST['yes'])){
-            $sql="DELETE FROM `classes` WHERE `id` = $id AND `teacher_id`=$teacherid";
-            $res = $conn->query($sql);
-            header("Location: class.php");
-            exit();
-        }
-        if (isset($_POST['no'])){
-            header("Location: class.php");
-            exit();
+    if (isset($_SESSION['delettabale'])) {
+        $id=$_SESSION['delettabale'];
+        $teacherid=$_SESSION['user_id'];
+        if ($_SERVER['REQUEST_METHOD']=="POST") {
+            if (isset($_POST['yes'])){
+                $sql="DELETE FROM `classes` WHERE `id` = $id AND `teacher_id`=$teacherid";
+                $res = $conn->query($sql);
+                unset($_SESSION['delettabale']);
+                header("Location: class.php");
+                exit();
+            }
+            if (isset($_POST['no'])){
+                header("Location: class.php");
+                exit();
+            }
         }
     }
+    else {
+        header("Location: class.php");
+        exit();
+    }
+    
 
 ?>
 <!DOCTYPE html>

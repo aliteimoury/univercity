@@ -1,7 +1,18 @@
 <?php
   include 'isteacher.php';
-  unset($_SESSION['studentid']);
-  unset($_SESSION['classid']);
+  if ($_SERVER['REQUEST_METHOD']=="POST") {
+    if (isset($_POST["delet_id"])){
+        $deleteid=$_POST["delet_id"];
+    }
+    else {
+        header("Location: ../teacher.php");
+        exit();
+    }
+  }
+  else {
+    header("Location: ../teacher.php");
+    exit();
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +51,7 @@
                     <ul>
                         <li>اطلاع رسانی </li>
                         <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
-                        <li><a href="#" style="text-decoration:none;color:black;">مدریت کلاس ها</a></li>
+                        <li><a href="manage-class.php" style="text-decoration:none;color:black;">مدریت کلاس ها</a></li>
                         <li>برنامه هفتگی</li>
                         <li>حضور و غیاب دروس </li>
                     </ul>
@@ -72,44 +83,41 @@
                     <thead>
                         <tr>
                         <th scope="col">شماره</th>
-                        <th scope="col">نام کلاس</th>
-                        <th scope="col">تاریخ</th>
-                        <th scope="col">تعداد دانشجو ها</th>
-                        <th scope="col">ویرایش دانشجو ها</th>
+                        <th scope="col">نام دانشجو</th>
+                        <th scope="col">ایمیل دانشجو</th>
+                        <th scope="col">حذف دانشجو</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                            $teacherid=$_SESSION['user_id'];
-                            $sql="SELECT * FROM `classes` WHERE teacher_id='$teacherid'";
+                            $sql="SELECT u.* FROM users u INNER JOIN enrollments e ON u.id = e.user_id WHERE e.class_id = '$deleteid' AND u.role = 'دانشجو';";
                             $res = $conn->query($sql);
-                            $user = $res->fetch_assoc();
-                            for ($i=1; $i < $res->num_rows+1; $i++) { 
-                                $classId = (int)$user['id'];
-                                $className = htmlspecialchars($user['name']);
-                                $classDate = htmlspecialchars($user['schedule']);
+                            $i=1;
+                            while($user = $res->fetch_assoc()) {
+                                $studentid = (int)$user['id'];
+                                $studentname = htmlspecialchars($user['name']);
+                                $studentemail = htmlspecialchars($user['email']);
 
                                 echo "<tr>";
                                 echo "<th scope='row'>{$i}</th>";
-                                echo "<td>{$className}</td>";
-                                echo "<td>{$classDate}</td>";
-                                $temp="SELECT * FROM `enrollments` WHERE `class_id`=$classId";
-                                $result = $conn->query($temp);
-                                echo "<td>{$result->num_rows}</td>";
+                                echo "<td>{$studentname}</td>";
+                                echo "<td>{$studentemail}</td>";
                                 echo "<td>";
-                                echo "<form method='POST' action='editstudentclass.php' style='display:inline; margin-left:5px;'>
-                                <input type='hidden' name='delet_id' value='{$classId}'>
-                                <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>ویرایش</button>
+                                echo "<form method='POST' action='deletstudent.php' style='display:inline;'>
+                                <input type='hidden' name='classid' value='{$deleteid}'>
+                                <input type='hidden' name='studentid' value='{$studentid}'>
+                                <button type='submit' class='btn btn-sm btn-outline-danger' name='delete'>حذف</button>
                                 </form>";
                                 echo "</td>";
                                 echo "</tr>"; 
+                                $i++;
                             }
                         ?>
                     </tbody>
                 </table>
             </div>
             <span class="line"></span>
-            <a class="btn btn-primary" href="Add_student.php" role="button">اضافه کردن دانشجو</a>
+            <a class="btn btn-primary" href="manage-class.php" role="button">بازگشت</a>
         </div>
 
     </div>
