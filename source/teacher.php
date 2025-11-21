@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bostan</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet"href="bootstrap/css/bootstrap.rtl.min.css"type="text/css"/>
+
 </head>
 
 <body>

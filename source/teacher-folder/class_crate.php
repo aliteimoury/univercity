@@ -1,6 +1,6 @@
 <?php
   include 'isteacher.php';
-  $status="وضعیت ثبت: ثبتی صورت نگرفته";
+  $status="";
   if ($_SERVER['REQUEST_METHOD']=="POST") {
     $tabalename=trim($_POST['tabalename']);
     $dateclass=($_POST['date']);
@@ -11,9 +11,9 @@
     $res=$conn->query($sql);
         
     if ($res) {
-      $status="وضعیت ثبت:ثبت با موفقیت انجام شد.";
+      $status="ثبت با موفقیت انجام شد.";
     }else{
-      $status="وضعیت ثبت:در ثبت مشکلی پیس امده است.";
+      $status="در ثبت مشکلی پیس امده است.";
       }
         
   }
@@ -25,6 +25,13 @@
   <title>ثبت نام کلاس</title>
   <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
   <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .d-label{
+      height: 15px;
+      z-index: 2;
+      text-align: center;
+    }
+  </style>
 </head>
 <body class="bg-success bg-opacity-25 d-flex justify-content-center align-items-center vh-100" dir="rtl">
 
@@ -45,10 +52,12 @@
 
       <button type="submit" class="btn btn-success mt-2">ثبت</button>
     </form>
-    <?php
-    echo "<label for='floatingPassword'>$status</label>";
-    ?>
-    <a class="btn btn-primary " href="class.php" role="button">بازگشت</a>
+    <div class="d-label">
+      <?php
+        echo "<label for='floatingPassword'>$status</label>";
+        ?>
+    </div>
+    <a class="btn btn-primary mt-3" href="class.php" role="button">بازگشت</a>
   </div>
 </body>
 </html>
