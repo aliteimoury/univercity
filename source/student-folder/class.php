@@ -86,7 +86,19 @@
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
-                            echo "<td>{$classDate}</td>";
+                            $date = $classDate;
+                            $days = [
+                                'Saturday' => 'شنبه',
+                                'Sunday' => 'یکشنبه',
+                                'Monday' => 'دوشنبه',
+                                'Tuesday' => 'سه‌شنبه',
+                                'Wednesday' => 'چهارشنبه',
+                                'Thursday' => 'پنجشنبه',
+                                'Friday' => 'جمعه'
+                            ];
+                            $dayEn = date('l', strtotime($date));
+                            $dayFa = $days[$dayEn];
+                            echo "<td>{$dayFa}</td>";
                             echo "</tr>";
 
                             $i++;
