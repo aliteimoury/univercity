@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bostan</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet"href="bootstrap/css/bootstrap.rtl.min.css"type="text/css"/>
+    <link rel="stylesheet"href="bootstrap/css/bootstrap.rtl.min.css"type="text/css">
 
 </head>
 
@@ -36,8 +36,8 @@
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
-                        <li><a href="teacher-folder/class.php" style="text-decoration:none;color:black;">ثبت نام کلاس ها</a></li>
-                        <li><a href="teacher-folder/manage-class.php" style="text-decoration:none;color:black;">مدریت کلاس ها</a></li>
+                        <li><a href="teacher-folder/class.php" class="a-tag">ثبت نام کلاس ها</a></li>
+                        <li><a href="teacher-folder/manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
                         <li>برنامه هفتگی</li>
                         <li>حضور و غیاب دروس </li>
                     </ul>

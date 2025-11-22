@@ -51,7 +51,7 @@
                     <ul>
                         <li>اطلاع رسانی </li>
                         <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
-                        <li><a href="manage-class.php" style="text-decoration:none;color:black;">مدریت کلاس ها</a></li>
+                        <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
                         <li>برنامه هفتگی</li>
                         <li>حضور و غیاب دروس </li>
                     </ul>
@@ -86,6 +86,12 @@
                         <th scope="col">نام دانشجو</th>
                         <th scope="col">ایمیل دانشجو</th>
                         <th scope="col">حذف دانشجو</th>
+                        <?php 
+                        $sql = "SELECT `name` FROM `classes` WHERE `id`=$deleteid";
+                        $res = $conn->query($sql);
+                        $res= $res->fetch_assoc();
+                        echo "<th scope='col'>نام کلاس: ".$res['name']."</th>";
+                        ?>
                         </tr>
                     </thead>
                     <tbody>
