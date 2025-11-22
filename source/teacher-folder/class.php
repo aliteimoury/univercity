@@ -73,6 +73,7 @@ unset($_SESSION['delettabale']);
                             <th scope="col">شماره</th>
                             <th scope="col">نام کلاس</th>
                             <th scope="col">تاریخ</th>
+                            <th scope="col">توضیحات</th>
                             <th scope="col">ویرایش/حذف</th>
                         </tr>
                     </thead>
@@ -87,11 +88,12 @@ unset($_SESSION['delettabale']);
                             $classId = (int)$user['id'];
                             $className = htmlspecialchars($user['name']);
                             $classDate = htmlspecialchars($user['schedule']);
-
+                            $classdescription = htmlspecialchars($user['description']);
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
                             echo "<td>{$classDate}</td>";
+                            echo "<td>{$classdescription}</td>";
                             echo "<td>";
 
                             echo "<form method='POST' action='editclass.php' style='display:inline; margin-left:5px;'>

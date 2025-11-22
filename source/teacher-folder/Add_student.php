@@ -62,7 +62,7 @@
             <option value="" selected disabled>انتخاب کنید</option>
             <?php
                 while($class=$Tclass->fetch_assoc()) {
-                    echo "<option value='" . $class['id'] . "'>" . $class['name']."----". $class['schedule']. "</option>";
+                    echo "<option value='" . $class['id'] . "'>" . $class['name']."----". $class['schedule']."----". $class['description']."</option>";
                 }
             ?>
         </select>

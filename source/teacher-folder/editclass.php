@@ -16,6 +16,7 @@
         $nametabale=$user['name'];
         $datetable=$user['schedule'];
         $_SESSION['edittabale'] = $id;
+        $description=$user['description'];
     }
     else{
         header("Location: ../teacher.php");
@@ -55,7 +56,13 @@
             echo "<input type='date' class='form-control' required name='date' value='$datetable'>";
         ?>
       </div>
-
+      
+      <div>
+        <label class="form-label">توضیحات(اختیاری):</label>
+        <?php 
+          echo "<input type='text' class='form-control' name='description' value='$description'>";
+        ?>
+      </div>
       <button type="submit" class="btn btn-success mt-2">ثبت ویرایش</button>
     </form>
     <a class="btn btn-primary " href="class.php" role="button">بازگشت</a>

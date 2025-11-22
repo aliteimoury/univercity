@@ -97,7 +97,6 @@
                 </table>
             </div>
             <span class="line"></span>
-            <a class="btn btn-primary" href="class_crate.php" role="button">اضافه کردن کلاس</a>
         </div>
 
     </div>

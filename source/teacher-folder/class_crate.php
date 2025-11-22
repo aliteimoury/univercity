@@ -3,11 +3,11 @@
   $status="";
   if ($_SERVER['REQUEST_METHOD']=="POST") {
     $tabalename=trim($_POST['tabalename']);
-    $dateclass=($_POST['date']);
+    $dateclass=$_POST['date'];
     $teacherid=$_SESSION['user_id'];
-    
-    $sql="INSERT INTO `classes` (`id`, `name`, `schedule`, `teacher_id`) 
-    VALUES (NULL, '$tabalename', '$dateclass', '$teacherid')";
+    $description=$_POST['description'];
+    $sql="INSERT INTO `classes`
+    VALUES (NULL, '$tabalename', '$dateclass', '$teacherid','$description')";
     $res=$conn->query($sql);
         
     if ($res) {
@@ -48,6 +48,11 @@
       <div>
         <label class="form-label">تاریخ:</label>
         <input type="date" class="form-control" required name="date">
+      </div>
+
+      <div>
+        <label class="form-label">توضیحات(اختیاری):</label>
+        <input type="text" class="form-control" name="description">
       </div>
 
       <button type="submit" class="btn btn-success mt-2">ثبت</button>
