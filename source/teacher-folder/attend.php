@@ -13,6 +13,17 @@ include 'isteacher.php';
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .ok {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .deniy {
+            background-color: red;
+            color: white;
+        }
+    </style>
 </head>
 
 <body>
@@ -104,13 +115,17 @@ include 'isteacher.php';
                             echo "<td>{$className}</td>";
                             echo "<td></td>";
                             $date = new DateTime($classDate);
-
-                            for ($j=0; $j <10 ; $j++) { 
+                            $today = new DateTime('today');
+                            $lastWeek = new DateTime('-8 days');
+                            
+                            for ($j = 0; $j < 10; $j++) {
+                                if ($date >= $lastWeek && $date <= $today)  $btnstatus = 'ok';
+                                else $btnstatus = 'deniy';
                                 echo "<td>
                                 <form action='attend_sub.php' method='post' style='display:inline; margin-left:5px;'>
                                 <input type='hidden' name='date' value='{$date->format('Y-m-d')}'>
                                 <input type='hidden' name='class_id' value='$classId'>
-                                <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>ثبت</button>
+                                <button type='submit' class='btn btn-sm btn-outline-primary $btnstatus' name='edit'  >ok</button>
                                 </form>
                                 </td>";
                                 $date->modify('+7 days');
