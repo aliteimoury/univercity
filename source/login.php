@@ -25,6 +25,7 @@
                     </body>
                 </html>";
                 header("Refresh: 2; url=Role.php");
+                exit();
             }
             else {
                 echo"<html>
@@ -34,6 +35,7 @@
                     </body>
                 </html>";
                 header("Refresh: 2; url=login.html");
+                exit();
 
             }
         }
@@ -45,6 +47,7 @@
                     </body>
                 </html>";
                 header("Refresh: 2; url=login.html");
+                exit();
         }
     }
     else {

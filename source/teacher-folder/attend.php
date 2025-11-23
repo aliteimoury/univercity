@@ -1,7 +1,6 @@
 <?php
 include 'isteacher.php';
-unset($_SESSION['studentid']);
-unset($_SESSION['classid']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +39,9 @@ unset($_SESSION['classid']);
                     <ul>
                         <li>اطلاع رسانی </li>
                         <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
-                        <li><a href="#" class="a-tag">مدریت کلاس ها</a></li>
+                        <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
                         <li>برنامه هفتگی</li>
-                        <li><a href="attend.php" class="a-tag">حضور و غیاب دروس</a></li>
+                        <li><a href="#" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
                 </li>
 
@@ -72,10 +71,19 @@ unset($_SESSION['classid']);
                     <thead>
                         <tr>
                             <th scope="col">شماره</th>
-                            <th scope="col">نام کلاس</th>
-                            <th scope="col">تاریخ</th>
-                            <th scope="col">تعداد دانشجو ها</th>
-                            <th scope="col">ویرایش دانشجو ها</th>
+                            <th scope="col">نام‌کلاس</th>
+                            <th scope="col">توضیحات</th>
+                            <th scope="col">جلسه:</th>
+                            <th scope="col">اول</th>
+                            <th scope="col">دوم</th>
+                            <th scope="col">سوم</th>
+                            <th scope="col">چهارم</th>
+                            <th scope="col">پنجم</th>
+                            <th scope="col">ششم</th>
+                            <th scope="col">هفتم</th>
+                            <th scope="col">هشتم</th>
+                            <th scope="col">نهم</th>
+                            <th scope="col">دهم</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -86,41 +94,29 @@ unset($_SESSION['classid']);
                         $i = 1;
 
                         while ($user = $res->fetch_assoc()) {
-                            $classId = (int)$user['id'];
-                            $className = htmlspecialchars($user['name']);
-                            $classDate = htmlspecialchars($user['schedule']);
-
-                            $temp = "SELECT * FROM `enrollments` WHERE `class_id`=$classId";
-                            $result = $conn->query($temp);
-                            $studentCount = $result->num_rows;
-
+                            $classId = $user['id'];
+                            $className = $user['name'];
+                            $classdescription = $user['description'];
+                            $classDate = $user['schedule'];
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
-                            $date = $classDate;
-                            $days = [
-                                'Saturday' => 'شنبه',
-                                'Sunday' => 'یکشنبه',
-                                'Monday' => 'دوشنبه',
-                                'Tuesday' => 'سه‌شنبه',
-                                'Wednesday' => 'چهارشنبه',
-                                'Thursday' => 'پنجشنبه',
-                                'Friday' => 'جمعه'
-                            ];
-                            $dayEn = date('l', strtotime($date));
-                            $dayFa = $days[$dayEn];
-                            echo "<td>{$dayFa}</td>";
-                            echo "<td>{$studentCount}</td>";
-                            echo "<td>";
+                            echo "<td>{$className}</td>";
+                            echo "<td></td>";
+                            $date = new DateTime($classDate);
 
-                            echo "<form method='POST' action='editstudentclass.php' style='display:inline; margin-left:5px;'>
-                            <input type='hidden' name='delet_id' value='{$classId}'>
-                            <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>ویرایش</button>
-                            </form>";
+                            for ($j=0; $j <10 ; $j++) { 
+                                echo "<td>
+                                <form action='attend_sub.php' method='post' style='display:inline; margin-left:5px;'>
+                                <input type='hidden' name='date' value='{$date->format('Y-m-d')}'>
+                                <input type='hidden' name='class_id' value='$classId'>
+                                <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>ثبت</button>
+                                </form>
+                                </td>";
+                                $date->modify('+7 days');
+                            }
 
-                            echo "</td>";
                             echo "</tr>";
-
                             $i++;
                         }
                         ?>
@@ -128,7 +124,6 @@ unset($_SESSION['classid']);
                 </table>
             </div>
             <span class="line"></span>
-            <a class="btn btn-primary" href="Add_student.php" role="button">اضافه کردن دانشجو</a>
         </div>
 
     </div>
