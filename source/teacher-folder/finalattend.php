@@ -12,10 +12,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $tempnow = new DateTime();
         $tempstart = clone $temp;
         $tempstart->modify('-7 days');
-        $tempend = clone $temp;
-        $tempend->modify('+7 days');
 
-        if ($tempnow >= $tempstart && $tempnow <= $tempend) {
+        if ($tempnow >= $tempstart) {
             while ($i > 0) {
                 $studentid = $_POST["userid$i"];
                 $status = $_POST["status$i"];
