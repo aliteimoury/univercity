@@ -69,6 +69,10 @@
                             <th scope="col">شماره</th>
                             <th scope="col">نام کلاس</th>
                             <th scope="col">تاریخ</th>
+                            <th scope="col">تعداد غیبت</th>
+                            <th scope="col">تعداد تاخیر</th>
+                            <th scope="col">ثبت حضور</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -99,8 +103,19 @@
                             $dayEn = date('l', strtotime($date));
                             $dayFa = $days[$dayEn];
                             echo "<td>{$dayFa}</td>";
-                            echo "</tr>";
+                            $tempsql="SELECT * FROM `attendances` WHERE `user_id`=$studentid AND `class_id`=$classId AND`status`='غیبت'";
+                            $tempres = $conn->query($tempsql);
+                            echo "<td>{$tempres->num_rows}</td>";
+                            $tempsql="SELECT * FROM `attendances` WHERE `user_id`=$studentid AND `class_id`=$classId AND`status`='تاخیر'";
+                            $tempres = $conn->query($tempsql);
+                            echo "<td>{$tempres->num_rows}</td>";
 
+                            echo "<td><form method='POST' action='attend.php' style='display:inline; margin-left:5px;'>
+                            <input type='hidden' name='classid' value='{$classId}'>
+                            <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>ثبت</button>
+                            </form></td>";
+
+                            echo "</tr>";
                             $i++;
                         }
                         ?>

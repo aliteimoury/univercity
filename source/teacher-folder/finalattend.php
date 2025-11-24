@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         $temp = new DateTime($date);
         $tempnow = new DateTime('today');
-        $templastweek=new DateTime('-8 days');
+        $templastweek = new DateTime('-8 days');
         if ($temp >= $templastweek && $temp <= $tempnow) {
             while ($i > 0) {
                 $studentid = $_POST["userid$i"];

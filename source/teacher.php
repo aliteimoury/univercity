@@ -38,7 +38,7 @@
                         <li>اطلاع رسانی </li>
                         <li><a href="teacher-folder/class.php" class="a-tag">ثبت نام کلاس ها</a></li>
                         <li><a href="teacher-folder/manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
-                        <li>برنامه هفتگی</li>
+                        <li><a href="teacher-folder/log.php"  class="a-tag">گزارشات</a></li>
                         <li><a href="teacher-folder/attend.php"  class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
                 </li>
