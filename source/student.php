@@ -13,6 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bostan</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet"href="bootstrap/css/bootstrap.rtl.min.css"type="text/css">
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     <div class="div-container">
         <div class="divmenu">
             <ul>
-                <li>🏠 صفحه‌ نخست
+                <li><a class="a-tag" href="#">🏠 صفحه‌ اصلی</a>
                     <ul>
                         <li>اعلان‌ها</li>
                         <li>اخبار سامانه</li>
@@ -36,7 +37,7 @@
 
                 <li>📘 امور آموزشی
                     <ul>
-                        <li>ثبت‌نام دروس</li>
+                        <li><a href="student-folder/class.php" class="a-tag">لیست کلاس ها</a></li>
                         <li>کارنامه آموزشی</li>
                         <li>برنامه هفتگی</li>
                     </ul>

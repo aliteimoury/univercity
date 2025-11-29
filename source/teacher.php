@@ -1,8 +1,5 @@
 <?php
-  include 'islogin.php';
-  if ($_SESSION['role']=="دانشجو") {
-    header("Location: student.php");
-  }
+  include 'isteacher.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,22 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bostan</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet"href="bootstrap/css/bootstrap.rtl.min.css"type="text/css">
+
 </head>
 
 <body>
     <div class="divheader">
         <p class="pheader">سامانه بوستان - اساتید ابن حسام</p>
         <?php
-        echo "<p class='pheader'>",$_SESSION['username']," خوش آمدید </p>";
+      
+        echo "<p class='nameuser'>",$_SESSION['username']," خوش آمدید </p>";
         ?>
         <img class="imgheader" src="logo.jpg">
-
     </div>
 
     <div class="div-container">
         <div class="divmenu">
             <ul>
-                <li>🏠 صفحه‌ اصلی
+                <li><a class="a-tag" href="#">🏠 صفحه‌ اصلی</a>
                     <ul>
                         <li>اعلان‌ها</li>
                         <li>اخبار سامانه </li>
@@ -37,10 +36,10 @@
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
-                        <li>ثبت‌نام دروس</li>
-                        <li>درس های اخذ شده</li>
-                        <li>برنامه هفتگی</li>
-                        <li>حضور و غیاب دروس </li>
+                        <li><a href="teacher-folder/class.php" class="a-tag">ثبت نام کلاس ها</a></li>
+                        <li><a href="teacher-folder/manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
+                        <li><a href="teacher-folder/log.php"  class="a-tag">گزارشات</a></li>
+                        <li><a href="teacher-folder/attend.php"  class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
                 </li>
 
@@ -63,8 +62,7 @@
                 </li>
             </ul>
         </div>
-
-        <div class="divmain">
+        <div>
             <iframe class="iframe" src="https://tvu.ac.ir/" frameborder="0"></iframe>
         </div>
 
