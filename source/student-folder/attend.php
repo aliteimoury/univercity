@@ -24,15 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <style>
-        .ok {
-            background-color: #28a745;
-            color: #fff;
-        }
+    .ok {
+        background-color: #28a745;
+        color: #fff;
+    }
 
-        .deniy {
-            background-color: red;
-            color: white;
-        }
+    .deniy {
+        background-color: red;
+        color: white;
+    }
     </style>
 </head>
 
@@ -78,7 +78,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
+                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>

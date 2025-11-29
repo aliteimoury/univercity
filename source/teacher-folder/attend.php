@@ -14,15 +14,15 @@ include 'isteacher.php';
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <style>
-        .ok {
-            background-color: #28a745;
-            color: #fff;
-        }
+    .ok {
+        background-color: #28a745;
+        color: #fff;
+    }
 
-        .deniy {
-            background-color: red;
-            color: white;
-        }
+    .deniy {
+        background-color: red;
+        color: white;
+    }
     </style>
 </head>
 
@@ -51,7 +51,7 @@ include 'isteacher.php';
                         <li>اطلاع رسانی </li>
                         <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
                         <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
-                        <li><a href="log.php"  class="a-tag">گزارشات</a></li>
+                        <li><a href="log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="#" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
                 </li>
@@ -71,7 +71,7 @@ include 'isteacher.php';
                 </li>
 
                 <li>
-                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
+                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>

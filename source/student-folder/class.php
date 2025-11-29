@@ -11,7 +11,7 @@
     <title>bostan</title>
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="class.css">
-    <link rel="stylesheet"href="../bootstrap/css/bootstrap.rtl.min.css"type="text/css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
 </head>
 
 <body>
@@ -56,7 +56,7 @@
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
+                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>
