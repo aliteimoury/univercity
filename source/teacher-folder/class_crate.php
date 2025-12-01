@@ -20,49 +20,84 @@
 ?>
 <!DOCTYPE html>
 <html lang="fa">
+
 <head>
-  <meta charset="UTF-8">
-  <title>ثبت نام کلاس</title>
-  <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
-  <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
-  <style>
-    .d-label{
-      height: 15px;
-      z-index: 2;
-      text-align: center;
+    <meta charset="UTF-8">
+    <title>ثبت نام کلاس</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <style>
+    body {
+        background-color: #d4edda;
+        /* سبز روشن مشابه bg-success bg-opacity-25 */
     }
-  </style>
+
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 24rem;
+    }
+
+    .card h2 {
+        font-weight: 600;
+        color: #0d6efd;
+    }
+
+    .form-label {
+        font-weight: 500;
+    }
+
+    .btn-success {
+        border-radius: 8px;
+        font-weight: 500;
+    }
+
+    .btn-primary {
+        border-radius: 8px;
+        width: 100%;
+    }
+
+    .status-message {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 500;
+        color: #198754;
+        /* رنگ سبز Bootstrap برای موفقیت */
+    }
+    </style>
 </head>
-<body class="bg-success bg-opacity-25 d-flex justify-content-center align-items-center vh-100" dir="rtl">
 
-  <div class="card p-4 shadow" style="width: 22rem;">
-    <h2 class="text-center mb-4">فرم ثبت کلاس</h2>
+<body class="d-flex justify-content-center align-items-center vh-100" dir="rtl">
 
-    <!-- فرم ورود -->
-    <form class="d-flex flex-column gap-3" action="#" method="POST">
-      <div>
-        <label class="form-label">نام کلاس:</label>
-        <input type="text" class="form-control" required name="tabalename">
-      </div>
+    <div class="card p-4">
+        <h2 class="text-center mb-4">فرم ثبت کلاس</h2>
 
-      <div>
-        <label class="form-label">تاریخ:</label>
-        <input type="date" class="form-control" required name="date">
-      </div>
+        <form class="d-flex flex-column gap-3" action="#" method="POST">
+            <div>
+                <label class="form-label">نام کلاس:</label>
+                <input type="text" class="form-control" required name="tabalename" placeholder="مثال: مبتنی بر وب">
+            </div>
 
-      <div>
-        <label class="form-label">توضیحات(اختیاری):</label>
-        <input type="text" class="form-control" name="description">
-      </div>
+            <div>
+                <label class="form-label">تاریخ:</label>
+                <input type="date" class="form-control" required name="date">
+            </div>
 
-      <button type="submit" class="btn btn-success mt-2">ثبت</button>
-    </form>
-    <div class="d-label">
-      <?php
-        echo "<label for='floatingPassword'>$status</label>";
-        ?>
+            <div>
+                <label class="form-label">توضیحات (اختیاری):</label>
+                <input type="text" class="form-control" name="description" placeholder="مثال: کلاس آنلاین">
+            </div>
+
+            <button type="submit" class="btn btn-success mt-2">ثبت</button>
+        </form>
+
+        <div class="status-message">
+            <?php echo $status; ?>
+        </div>
+
+        <a class="btn btn-primary mt-3" href="class.php" role="button">بازگشت</a>
     </div>
-    <a class="btn btn-primary mt-3" href="class.php" role="button">بازگشت</a>
-  </div>
+
 </body>
+
 </html>

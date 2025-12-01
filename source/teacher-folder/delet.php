@@ -26,24 +26,86 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ایا مطمعنی؟</title>
-        <style>
+<html lang="fa">
 
-        </style>
-    </head>
-    <body>
-        <h1>ایا مطمعنید؟</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آیا مطمئن هستید؟</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
+    <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+    <style>
+    body {
+        background-color: #f8f9fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .confirm-card {
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 20rem;
+    }
+
+    .confirm-card h1 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 25px;
+        color: #dc3545;
+    }
+
+    .confirm-card form {
+        display: inline-block;
+        margin: 5px;
+    }
+
+    .btn-confirm {
+        width: 120px;
+        border-radius: 8px;
+        font-weight: 500;
+    }
+
+    .btn-yes {
+        background-color: #dc3545;
+        color: #fff;
+    }
+
+    .btn-no {
+        background-color: #6c757d;
+        color: #fff;
+    }
+
+    .btn-yes:hover {
+        background-color: #c82333;
+    }
+
+    .btn-no:hover {
+        background-color: #5c636a;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div class="confirm-card">
+        <h1>آیا مطمئن هستید؟</h1>
+
         <form action="#" method="POST">
             <input type="hidden" value="yes" name="yes">
-            <button type="submit">تایید</button>
+            <button type="submit" class="btn btn-confirm btn-yes">تایید</button>
         </form>
+
         <form action="#" method="POST">
             <input type="hidden" value="no" name="no">
-            <button type="submit">منصرف شدن</button>
+            <button type="submit" class="btn btn-confirm btn-no">منصرف شدن</button>
         </form>
-    </body>
+    </div>
+
+</body>
+
 </html>

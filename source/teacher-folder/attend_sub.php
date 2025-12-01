@@ -24,6 +24,59 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+    .divmain {
+        background-color: whitesmoke;
+        border-radius: 15px;
+    }
+
+    /* خط جداکننده */
+    .line {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        margin: 20px 0;
+    }
+
+    .btn,
+    input[type="submit"] {
+        border-radius: 12px;
+        font-weight: 500;
+        padding: 8px 18px;
+        border: none;
+    }
+
+    a.btn-primary {
+        background-color: #0dcaf0;
+        color: #000;
+    }
+
+    .d-table table {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        color: #000;
+    }
+
+    .d-table thead {
+        background: #0d6efd;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .d-table tbody tr:hover {
+        background: rgba(49, 92, 92, 0.1);
+        transition: 0.2s;
+    }
+
+    table td form {
+        display: inline-block;
+        margin: 0 3px;
+    }
+    </style>
 </head>
 
 <body>
@@ -137,7 +190,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo "<td>$name</td>";
                                 echo "<td>$email</td>";
                                 echo "<td>
-                                <select name='status$i'>
+                                <select name='status$i' class='form-select'>
                                 <option value='حاضر' $hoozor>حضور</option>
                                 <option value='غیبت' $qeybat>غایب</option>
                                 <option value='تاخیر' $takhir>تاخیر</option>
@@ -157,8 +210,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     </table>
                 </div>
                 <span class="line"></span>
-                <input type="submit" value="ثبت">
-                <a class="btn btn-primary" href="attend.php" role="button">بازگشت</a>
+                <input class="btn btn-success" type="submit" value="ثبت">
+                <a class="btn btn-danger" href="attend.php" role="button">بازگشت</a>
             </form>
         </div>
     </div>
