@@ -108,7 +108,7 @@
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
+                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>

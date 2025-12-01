@@ -134,7 +134,6 @@ include 'isteacher.php';
                             <th scope="col">شماره</th>
                             <th scope="col">نام‌کلاس</th>
                             <th scope="col">توضیحات</th>
-                            <th scope="col">جلسه:</th>
                             <th scope="col">اول</th>
                             <th scope="col">دوم</th>
                             <th scope="col">سوم</th>
@@ -163,7 +162,6 @@ include 'isteacher.php';
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
                             echo "<td>{$className}</td>";
-                            echo "<td></td>";
                             $date = new DateTime($classDate);
                             $today = new DateTime('today');
                             $lastWeek = new DateTime('-8 days');
