@@ -14,6 +14,59 @@ unset($_SESSION['classid']);
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <style>
+    .divmain {
+        background-color: whitesmoke;
+        border-radius: 15px;
+    }
+
+    /* خط جداکننده */
+    .line {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        margin: 20px 0;
+    }
+
+    .btn,
+    input[type="submit"] {
+        border-radius: 12px;
+        font-weight: 500;
+        padding: 8px 18px;
+        border: none;
+    }
+
+    a.btn-primary {
+        background-color: #0dcaf0;
+        color: #000;
+    }
+
+    .d-table table {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        color: #000;
+    }
+
+    .d-table thead {
+        background: #0d6efd;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .d-table tbody tr:hover {
+        background: rgba(49, 92, 92, 0.1);
+        transition: 0.2s;
+    }
+
+    table td form {
+        display: inline-block;
+        margin: 0 3px;
+    }
+    </style>
 </head>
 
 <body>
@@ -41,7 +94,7 @@ unset($_SESSION['classid']);
                         <li>اطلاع رسانی </li>
                         <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
                         <li><a href="#" class="a-tag">مدریت کلاس ها</a></li>
-                        <li><a href="log.php"  class="a-tag">گزارشات</a></li>
+                        <li><a href="log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="attend.php" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
                 </li>
@@ -61,7 +114,7 @@ unset($_SESSION['classid']);
                 </li>
 
                 <li>
-                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
+                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>

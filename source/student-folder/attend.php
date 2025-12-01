@@ -24,15 +24,74 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <style>
-        .ok {
-            background-color: #28a745;
-            color: #fff;
-        }
+    .divmain {
+        background-color: whitesmoke;
+        border-radius: 15px;
+    }
 
-        .deniy {
-            background-color: red;
-            color: white;
-        }
+    .line {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        margin: 20px 0;
+    }
+
+    .btn,
+    input[type="submit"] {
+        border-radius: 12px;
+        font-weight: 500;
+        padding: 8px 18px;
+        border: none;
+    }
+
+    a.btn-primary {
+        background-color: #0dcaf0;
+        color: #000;
+    }
+
+    .d-table table {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        color: #000;
+    }
+
+    .d-table thead {
+        background: #0d6efd;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .d-table tbody tr:hover {
+        background: rgba(49, 92, 92, 0.1);
+        transition: 0.2s;
+    }
+
+    table td form {
+        display: inline-block;
+        margin: 0 3px;
+    }
+
+    .ok {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .deniy {
+        background-color: red;
+        color: white;
+    }
+
+    .ok {
+        background-color: #28a745;
+        color: #fff;
+    }
+
+    .deniy {
+        background-color: red;
+        color: white;
+    }
     </style>
 </head>
 
@@ -78,7 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
+                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>

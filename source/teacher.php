@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>bostan</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet"href="bootstrap/css/bootstrap.rtl.min.css"type="text/css">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.rtl.min.css" type="text/css">
 
 </head>
 
@@ -38,8 +38,8 @@
                         <li>اطلاع رسانی </li>
                         <li><a href="teacher-folder/class.php" class="a-tag">ثبت نام کلاس ها</a></li>
                         <li><a href="teacher-folder/manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
-                        <li><a href="teacher-folder/log.php"  class="a-tag">گزارشات</a></li>
-                        <li><a href="teacher-folder/attend.php"  class="a-tag">حضور و غیاب دروس</a></li>
+                        <li><a href="teacher-folder/log.php" class="a-tag">گزارشات</a></li>
+                        <li><a href="teacher-folder/attend.php" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
                 </li>
 
@@ -58,7 +58,7 @@
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:140px;">🔴 خروج</a>
+                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>
