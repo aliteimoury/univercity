@@ -102,8 +102,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
-                        <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
-                        <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
                         <li><a href="log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="attend.php" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>

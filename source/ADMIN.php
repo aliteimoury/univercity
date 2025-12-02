@@ -1,5 +1,5 @@
 <?php
-  include 'isteacher.php';
+include 'isadmin.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,10 +15,9 @@
 
 <body>
     <div class="divheader">
-        <p class="pheader">سامانه بوستان - اساتید ابن حسام</p>
+        <p class="pheader">سامانه بوستان - مدیریت سامانه</p>
         <?php
-      
-        echo "<p class='nameuser'>",$_SESSION['username']," خوش آمدید </p>";
+        echo "<p class='nameuser'>", $_SESSION['username'], " خوش آمدید </p>";
         ?>
         <img class="imgheader" src="logo.jpg">
     </div>
@@ -35,26 +34,12 @@
 
                 <li>📘 امور آموزشی
                     <ul>
-                        <li>اطلاع رسانی </li>
-                        <li><a href="teacher-folder/log.php" class="a-tag">گزارشات</a></li>
-                        <li><a href="teacher-folder/attend.php" class="a-tag">حضور و غیاب دروس</a></li>
+                        <li><a href="Admin/user.php" class="a-tag">لیست کاربران</a></li>
+                        <li><a href="Admin/manage_class.php">مدیریت کلاس ها</a></li>
+                        <li>موقت است این</li>
+
                     </ul>
                 </li>
-
-                <li>💰 امور مالی
-                    <ul>
-                        <li>مبلغ هر درس برای مدرس</li>
-                        <li>سوابق پرداخت</li>
-                    </ul>
-                </li>
-
-                <li>👤 پروفایل کاربر
-                    <ul>
-                        <li>ویرایش اطلاعات</li>
-                        <li>تغییر رمز عبور</li>
-                    </ul>
-                </li>
-
                 <li>
                     <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
