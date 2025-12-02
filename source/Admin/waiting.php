@@ -35,7 +35,7 @@ include 'isadmin.php';
                 <li>📘 امور آموزشی
                     <ul>
                         <li><a href="user.php" class="a-tag">لیست کاربران</a></li>
-                        <li><a href="manage_class.php">مدیریت کلاس ها</a></li>
+                        <li><a href="manage_class.php" class="a-tag">مدیریت کلاس ها</a></li>
                         <li>موقت است این</li>
 
                     </ul>
@@ -63,7 +63,7 @@ include 'isadmin.php';
                     <tbody>
                         <?php
                         $teacherid = $_SESSION['user_id'];
-                        $sql = "SELECT * FROM `users` WHERE `Status`='انتظار'";
+                        $sql = "SELECT * FROM `users` WHERE `Status`='انتطار'";
                         $res = $conn->query($sql);
                         $i = 1;
 

@@ -35,7 +35,7 @@ include 'isadmin.php';
                 <li>📘 امور آموزشی
                     <ul>
                         <li><a href="Admin/user.php" class="a-tag">لیست کاربران</a></li>
-                        <li><a href="Admin/manage_class.php">مدیریت کلاس ها</a></li>
+                        <li><a href="Admin/manage_class.php" class="a-tag">مدیریت کلاس ها</a></li>
                         <li>موقت است این</li>
 
                     </ul>
