@@ -1,5 +1,17 @@
 <?php
 include 'isadmin.php';
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    if (isset($_POST["userid"])) {
+        $teacherid = $_POST["userid"];
+    } else {
+        header("Location: user.php");
+        exit();
+    }
+} else {
+    header("Location: user.php");
+    exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,15 +74,19 @@ include 'isadmin.php';
                     <thead>
                         <tr>
                             <th scope="col">شماره</th>
-                            <th scope="col">نام</th>
-                            <th scope="col">ایمیل</th>
-                            <th scope="col">تعداد کلاس</th>
+                            <th scope="col">نام کلاس</th>
+                            <th scope="col">تاریخ</th>
+                            <th scope="col">روز</th>
+                            <th scope="col">توضیحات</th>
+                            <th scope="col">تعداد دانشجویان</th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
                             <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php
-                        $sql = "SELECT * FROM `users` WHERE `Status`='ok' AND `role`='مدرس';";
+                        $sql = "SELECT * FROM `classes` WHERE `teacher_id`=$teacherid";
                         $res = $conn->query($sql);
                         $i = 1;
 
@@ -78,16 +94,36 @@ include 'isadmin.php';
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$user['name']}</td>";
-                            echo "<td>{$user['email']}</td>";
+                            echo "<td>{$user['schedule']}</td>"; 
+                            $date = $user['schedule'];
+                            $days = [
+                                'Saturday' => 'شنبه',
+                                'Sunday' => 'یکشنبه',
+                                'Monday' => 'دوشنبه',
+                                'Tuesday' => 'سه‌شنبه',
+                                'Wednesday' => 'چهارشنبه',
+                                'Thursday' => 'پنجشنبه',
+                                'Friday' => 'جمعه'
+                            ];
+                            $dayEn = date('l', strtotime($date));
+                            $dayFa = $days[$dayEn];
+                            echo "<td>{$dayFa}</td>";
+                            echo "<td>{$user['description']}</td>";
 
-                            $tempsql = "SELECT * FROM `classes` WHERE `teacher_id`='{$user['id']}'";
+                            $tempsql = "SELECT * FROM `enrollments` WHERE `class_id`={$user['id']}";
                             $tempres = $conn->query($tempsql);
-
-                            echo "<td>{$tempres->num_rows}</td>";
-
-                            echo "<td><form method='POST' action='class.php' style='display:inline; margin-left:5px;'>
+                            echo "<td>$tempres->num_rows</td>";
+                            echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;'>
                             <input type='hidden' name='userid' value='{$user['id']}'>
-                            <button type='submit' class='btn btn-sm btn-outline-primary btnmanage' name='edit'>مدیریت</button>
+                            <button type='submit' class='btn btn-sm btn-outline-primary btnmanage' name='edit'>دانشجویان</button>
+                            </form></td>";
+                            echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
+                            <input type='hidden' name='userid' value='{$user['id']}'>
+                            <button type='submit' class='btn btn-sm btn-outline-primary ' name='edit'>ویرایش</button>
+                            </form></td>";
+                            echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
+                            <input type='hidden' name='delete_id' value=''>
+                            <button type='submit' class='btn btn-sm btn-outline-danger' name='delete'>حذف</button>
                             </form></td>";
                             echo "</tr>";
                             $i++;
