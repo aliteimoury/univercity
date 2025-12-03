@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 24, 2025 at 12:50 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Host: localhost:3306
+-- Generation Time: Dec 03, 2025 at 04:19 AM
+-- Server version: 8.0.30
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,16 +24,36 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `ID` int NOT NULL,
+  `Username` varchar(50) COLLATE utf8mb4_persian_ci NOT NULL,
+  `Password` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL,
+  `role` varchar(50) COLLATE utf8mb4_persian_ci NOT NULL DEFAULT 'ADMIN'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`ID`, `Username`, `Password`, `role`) VALUES
+(1, 'parsa.khosravi1385@gmail.com', '$2y$10$gzphMtpS0ZeZzhfv916sY.PUw5u.oFFOmJZZ/pNNipo.W9i.M7Rti', 'ADMIN');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `attendances`
 --
 
 CREATE TABLE `attendances` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `class_id` int(11) NOT NULL,
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `class_id` int NOT NULL,
   `date` date NOT NULL,
-  `status` enum('حاضر','غیبت','تاخیر') NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
+  `status` enum('حاضر','غیبت','تاخیر') COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -43,11 +63,11 @@ CREATE TABLE `attendances` (
 --
 
 CREATE TABLE `classes` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `schedule` text NOT NULL,
-  `teacher_id` int(11) NOT NULL,
-  `description` text DEFAULT NULL
+  `id` int NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_persian_ci NOT NULL,
+  `schedule` text COLLATE utf8mb4_persian_ci NOT NULL,
+  `teacher_id` int NOT NULL,
+  `description` text COLLATE utf8mb4_persian_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -57,9 +77,9 @@ CREATE TABLE `classes` (
 --
 
 CREATE TABLE `enrollments` (
-  `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  `class_id` int(11) NOT NULL
+  `id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `class_id` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 -- --------------------------------------------------------
@@ -69,17 +89,24 @@ CREATE TABLE `enrollments` (
 --
 
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `email` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `role` enum('دانشجو','مدرس') NOT NULL,
-  `created_at` timestamp(6) NOT NULL DEFAULT current_timestamp(6)
+  `id` int NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_persian_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_persian_ci NOT NULL,
+  `password` varchar(100) COLLATE utf8mb4_persian_ci NOT NULL,
+  `role` enum('دانشجو','مدرس') COLLATE utf8mb4_persian_ci NOT NULL,
+  `created_at` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `Status` enum('معلق','انتطار','ok') CHARACTER SET utf8mb4 COLLATE utf8mb4_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_persian_ci;
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `attendances`
@@ -115,28 +142,34 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `ID` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `attendances`
 --
 ALTER TABLE `attendances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `classes`
 --
 ALTER TABLE `classes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `enrollments`
 --
 ALTER TABLE `enrollments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

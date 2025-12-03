@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         header("Location: $location");
         exit();
     } else {
-        header("Location: user.php");
+        header("Location: ../admin.php");
         exit();
     }
 } else {
-    header("Location: user.php");
+    header("Location: ../admin.php");
     exit();
 }
  

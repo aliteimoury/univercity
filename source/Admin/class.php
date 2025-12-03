@@ -5,11 +5,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["userid"])) {
         $teacherid = $_POST["userid"];
     } else {
-        header("Location: user.php");
+        header("Location: ../admin.php");
         exit();
     }
 } else {
-    header("Location: user.php");
+    header("Location: ../admin.php");
     exit();
 }
 ?>
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <li>📘 امور آموزشی
                     <ul>
                         <li><a href="user.php" class="a-tag">لیست کاربران</a></li>
-                        <li><a href="#" class="a-tag">مدیریت کلاس ها</a></li>
+                        <li><a href="manage_class.php" class="a-tag">مدیریت کلاس ها</a></li>
                         <li>موقت است این</li>
 
                     </ul>
@@ -94,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$user['name']}</td>";
-                            echo "<td>{$user['schedule']}</td>"; 
+                            echo "<td>{$user['schedule']}</td>";
                             $date = $user['schedule'];
                             $days = [
                                 'Saturday' => 'شنبه',
@@ -114,15 +114,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             $tempres = $conn->query($tempsql);
                             echo "<td>$tempres->num_rows</td>";
                             echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;'>
-                            <input type='hidden' name='userid' value='{$user['id']}'>
+                            <input type='hidden' name='class_id' value='{$user['id']}'>
+                            <input type='hidden' name='userid' value='{$teacherid}'>
                             <button type='submit' class='btn btn-sm btn-outline-primary btnmanage' name='edit'>دانشجویان</button>
                             </form></td>";
-                            echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
-                            <input type='hidden' name='userid' value='{$user['id']}'>
+                            echo "<td><form method='POST' action='editclass.php' style='display:inline; margin-left:5px;'>
+                            <input type='hidden' name='class_id' value='{$user['id']}'>
+                            <input type='hidden' name='userid' value='{$teacherid}'>
                             <button type='submit' class='btn btn-sm btn-outline-primary ' name='edit'>ویرایش</button>
                             </form></td>";
-                            echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
-                            <input type='hidden' name='delete_id' value=''>
+                            echo "<td><form method='POST' action='deletclass.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
+                            <input type='hidden' name='class_id' value='{$user['id']}'>
+                            <input type='hidden' name='userid' value='{$teacherid}'>
                             <button type='submit' class='btn btn-sm btn-outline-danger' name='delete'>حذف</button>
                             </form></td>";
                             echo "</tr>";
@@ -134,6 +137,13 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </table>
             </div>
             <span class="line"></span>
+            <form method='POST' action='createclass.php' style='display:inline; margin-left:5px;'>
+                <?php 
+                    echo "<input type='hidden' name='userid' value='$teacherid'>";
+                ?>
+                <button type='submit' class='btn btn-primary' name='delete'>اضافه کردن کلاس</button>
+            </form>
+            <a class="btn btn-primary" href="manage_class.php" role="button">بازگشت</a>
         </div>
 
     </div>
