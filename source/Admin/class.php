@@ -113,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             $tempsql = "SELECT * FROM `enrollments` WHERE `class_id`={$user['id']}";
                             $tempres = $conn->query($tempsql);
                             echo "<td>$tempres->num_rows</td>";
-                            echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;'>
+                            echo "<td><form method='POST' action='studentlist.php' style='display:inline; margin-left:5px;'>
                             <input type='hidden' name='class_id' value='{$user['id']}'>
                             <input type='hidden' name='userid' value='{$teacherid}'>
                             <button type='submit' class='btn btn-sm btn-outline-primary btnmanage' name='edit'>دانشجویان</button>
