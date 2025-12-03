@@ -76,12 +76,12 @@ include 'isadmin.php';
                             echo "<td>{$user['created_at']}</td>";
                             echo "<td><form method='POST' action='activeruser.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
                             <input type='hidden' name='userid' value='{$user['id']}'>
-                            <input type='hidden' name='location' value='suspended.php'>
+                            <input type='hidden' name='location' value='waiting.php'>
                             <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>فعال کردن</button>
                             </form></td>";
                             echo "<td><form method='POST' action='deletuser.php' style='display:inline; margin-left:5px;' onsubmit=\"return confirm('آیا مطمئن هستید؟');\">
                             <input type='hidden' name='userid' value='{$user['id']}'>
-                            <input type='hidden' name='location' value='suspended.php'>
+                            <input type='hidden' name='location' value='waiting.php'>
                             <button type='submit' class='btn btn-sm btn-outline-danger' name='edit'>حذف</button>
                             </form></td>";
                             echo "</tr>";

@@ -132,12 +132,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             $i++;
                         }
                         ?>
-
+                        echo "<input type='hidden' name='userid' value='$teacherid'>";
                     </tbody>
                 </table>
             </div>
             <span class="line"></span>
-            <form method='POST' action='createclass.php' style='display:inline; margin-left:5px;'>
+            <form method='POST' action='createclass.php' style='display:inline; margin-left:5px;' onsubmit="return confirm('آیا مطمئن هستید؟');">
                 <?php 
                     echo "<input type='hidden' name='userid' value='$teacherid'>";
                 ?>
