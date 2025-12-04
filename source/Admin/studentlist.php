@@ -37,18 +37,34 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </style>
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            document.getElementById("form1").addEventListener("submit", function(e) {
+
+                // همه چک باکس‌ها
+                let selected = document.querySelectorAll('input[name="Deletid[]"]:checked');
+
+                // اگر چیزی انتخاب نشده باشد
+                if (selected.length === 0) {
+                    e.preventDefault();
+                    alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
+                    return;
+                }
+
+                // پیام تایید حذف
+                let confirmDelete = confirm("آیا از حذف موارد انتخاب شده مطمئن هستید؟");
+
+                if (!confirmDelete) {
+                    e.preventDefault(); // جلوگیری از ارسال فرم
+                }
+            });
+        });
         let temp = false;
 
         function selectAll() {
-            if (temp) {
-                let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(ch => ch.checked = !temp);
-                temp = !temp;
-            } else {
-                let checkboxes = document.querySelectorAll('input[type="checkbox"]');
-                checkboxes.forEach(ch => ch.checked = !temp);
-                temp = !temp;
-            }
+            let checkboxes = document.querySelectorAll('.Check1');
+            checkboxes.forEach(ch => ch.checked = !temp);
+            temp = !temp;
         }
     </script>
 </head>
@@ -87,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         </div>
         <div class="divmain">
             <div class="d-table">
-                <form action="" method="post">
+                <form action="deletstudent.php" method="post" id="form1">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -109,12 +125,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             while ($user = $res->fetch_assoc()) {
                                 echo "<tr>";
                                 echo "<th scope='row'>{$i}</th>";
-                                echo "<td><input type='checkbox' value='{$user['u_id']}' name='Deletid[]'></td>";
+                                echo "<td><input type='checkbox' value='{$user['u_id']}' name='Deletid[]' class='Check1'></td>";
                                 echo "<td>{$user['name']}</td>";
                                 echo "<td>{$user['email']}</td>";
                                 echo "</tr>";
                                 $i++;
                             }
+                            echo "<input type='hidden' name='userid' value='$teacherid'>";
+                            echo "<input type='hidden' name='class_id' value='$class_id'>";
                             ?>
                         </tbody>
                     </table>

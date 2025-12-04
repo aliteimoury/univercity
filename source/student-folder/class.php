@@ -108,7 +108,7 @@
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
+                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>
@@ -118,12 +118,11 @@
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">شماره</th>
+                            <th scope="col"> شماره</th>
                             <th scope="col">نام کلاس</th>
                             <th scope="col">تاریخ</th>
                             <th scope="col">تعداد غیبت</th>
-                            <th scope="col">تعداد تاخیر</th>
-                            <th scope="col">ثبت حضور</th>
+                            <th scope="col">مشاهده ی جلسات حضور</th>
 
                         </tr>
                     </thead>
@@ -158,13 +157,10 @@
                             $tempsql="SELECT * FROM `attendances` WHERE `user_id`=$studentid AND `class_id`=$classId AND`status`='غیبت'";
                             $tempres = $conn->query($tempsql);
                             echo "<td>{$tempres->num_rows}</td>";
-                            $tempsql="SELECT * FROM `attendances` WHERE `user_id`=$studentid AND `class_id`=$classId AND`status`='تاخیر'";
-                            $tempres = $conn->query($tempsql);
-                            echo "<td>{$tempres->num_rows}</td>";
 
                             echo "<td><form method='POST' action='attend.php' style='display:inline; margin-left:5px;'>
                             <input type='hidden' name='classid' value='{$classId}'>
-                            <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>ثبت</button>
+                            <button type='submit' class='btn btn-sm btn-outline-primary' name='edit'>نمایش</button>
                             </form></td>";
 
                             echo "</tr>";

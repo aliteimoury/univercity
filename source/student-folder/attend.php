@@ -4,6 +4,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["classid"])) {
 
         $classid = $_POST["classid"];
+        $studentid = $_SESSION['user_id'];
+        $sql = "SELECT * FROM `classes` WHERE `id`=$classid";
+        $res = $conn->query($sql);
+
+        $user = $res->fetch_assoc();
     } else {
         header("Location: ../student.php");
         exit();
@@ -24,74 +29,74 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <style>
-    .divmain {
-        background-color: whitesmoke;
-        border-radius: 15px;
-    }
+        .divmain {
+            background-color: whitesmoke;
+            border-radius: 15px;
+        }
 
-    .line {
-        display: block;
-        width: 100%;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.4);
-        margin: 20px 0;
-    }
+        .line {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.4);
+            margin: 20px 0;
+        }
 
-    .btn,
-    input[type="submit"] {
-        border-radius: 12px;
-        font-weight: 500;
-        padding: 8px 18px;
-        border: none;
-    }
+        .btn,
+        input[type="submit"] {
+            border-radius: 12px;
+            font-weight: 500;
+            padding: 8px 18px;
+            border: none;
+        }
 
-    a.btn-primary {
-        background-color: #0dcaf0;
-        color: #000;
-    }
+        a.btn-primary {
+            background-color: #0dcaf0;
+            color: #000;
+        }
 
-    .d-table table {
-        background: #ffffff;
-        border-radius: 10px;
-        overflow: hidden;
-        color: #000;
-    }
+        .d-table table {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #000;
+        }
 
-    .d-table thead {
-        background: #0d6efd;
-        color: #fff;
-        font-weight: bold;
-    }
+        .d-table thead {
+            background: #0d6efd;
+            color: #fff;
+            font-weight: bold;
+        }
 
-    .d-table tbody tr:hover {
-        background: rgba(49, 92, 92, 0.1);
-        transition: 0.2s;
-    }
+        .d-table tbody tr:hover {
+            background: rgba(49, 92, 92, 0.1);
+            transition: 0.2s;
+        }
 
-    table td form {
-        display: inline-block;
-        margin: 0 3px;
-    }
+        table td form {
+            display: inline-block;
+            margin: 0 3px;
+        }
 
-    .ok {
-        background-color: #28a745;
-        color: #fff;
-    }
+        .ok {
+            background-color: #28a745;
+            color: #fff;
+        }
 
-    .deniy {
-        background-color: red;
-        color: white;
-    }
+        .deniy {
+            background-color: red;
+            color: white;
+        }
 
-    .ok {
-        background-color: #28a745;
-        color: #fff;
-    }
+        .ok {
+            background-color: #28a745;
+            color: #fff;
+        }
 
-    .deniy {
-        background-color: red;
-        color: white;
-    }
+        .deniy {
+            background-color: red;
+            color: white;
+        }
     </style>
 </head>
 
@@ -137,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </li>
 
                 <li>
-                    <a href="logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
+                    <a href="../logout.php" style="color:red; text-decoration:none; padding-left:90px;">🔴 خروج</a>
                 </li>
             </ul>
         </div>
@@ -147,7 +152,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <table class="table table-hover">
                     <thead>
                         <tr>
-                            <th scope="col">شماره</th>
                             <th scope="col">نام کلاس</th>
                             <th scope="col">توضیحات</th>
                             <th scope="col">جلسه:</th>
@@ -166,43 +170,46 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     </thead>
                     <tbody>
                         <?php
-                        $studentid = $_SESSION['user_id'];
-                        $sql = "SELECT * FROM `classes` WHERE `id`=$classid";
-                        $res = $conn->query($sql);
-                        $i = 1;
+                        echo "<tr>";
+                        echo "<td>{$user['name']}</td>";
+                        echo "<td>{$user['description']}</td>";
+                        echo "<td></td>";
 
-                        while ($user = $res->fetch_assoc()) {
-                            echo "<tr>";
-                            echo "<th scope='row'>{$i}</th>";
-                            echo "<td>{$user['name']}</td>";
-                            echo "<td>{$user['description']}</td>";
-                            echo "<td></td>";
-                            $date = new DateTime($user["schedule"]);
-                            $today = new DateTime('today');
-                            $lastWeek = new DateTime('-1 days');
-                            for ($j = 0; $j < 10; $j++) {
-                                for ($j = 0; $j < 10; $j++) {
-                                    if ($date >= $lastWeek && $date <= $today) {
-                                        $btnstlye = 'ok';
-                                        $btnstatus = '';
-                                    } else {
+                        // گرفتن حضور و مرتب کردن طبق تاریخ
+                        $tempsql = "SELECT `status` FROM `attendances`WHERE `user_id`=$studentid AND `class_id`=$classid ORDER BY `date` ASC";
+                        $tempres = $conn->query($tempsql);
 
-                                        $btnstlye = 'deniy';
-                                        $btnstatus = 'disabled';
-                                    }
-                                    echo "<td>
-                                <form action='attend_sub.php' method='post' style='display:inline; margin-left:5px;'>
-                                <input type='hidden' name='date' value='{$date->format('Y-m-d')}'>
-                                <input type='hidden' name='classid' value='$classid'>
-                                <button type='submit' class='btn btn-sm btn-outline-primary $btnstlye' $btnstatus name='edit' >ثبت</button>
-                                </form>
-                                </td>";
-                                    $date->modify('+7 days');
-                                }
+                        // تبدیل نتایج به آرایه وضعیت‌ها
+                        $sessions = [];
+                        while ($tempuser = $tempres->fetch_assoc()) {
+                            switch ($tempuser['status']) {
+                                case 'حاضر':
+                                    $sessions[] = "✅";
+                                    break;
+                                case 'غیبت':
+                                    $sessions[] = "❌";
+                                    break;
+                                default:
+                                    $sessions[] = "❔";
+                                    break;
                             }
-                            echo "</tr>";
-                            $i++;
                         }
+
+                        // تعداد ستون‌ها (مثلاً 10 جلسه ثابت)
+                        $maxSessions = 10;
+
+                        // چاپ ستون‌های جلسات طبق شناسه جلسه
+                        for ($i = 0; $i < $maxSessions; $i++) {
+                            if (isset($sessions[$i])) {
+                                echo "<td>{$sessions[$i]}</td>";
+                            } else {
+                                echo "<td>-</td>";
+                            }
+                        }
+
+                        echo "</tr>";
+
+
                         ?>
 
                     </tbody>

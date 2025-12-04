@@ -27,55 +27,90 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
 
     <style>
-    .divmain {
-        background-color: whitesmoke;
-        border-radius: 15px;
-    }
+        .divmain {
+            background-color: whitesmoke;
+            border-radius: 15px;
+        }
 
-    /* خط جداکننده */
-    .line {
-        display: block;
-        width: 100%;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.4);
-        margin: 20px 0;
-    }
+        /* خط جداکننده */
+        .line {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.4);
+            margin: 20px 0;
+        }
 
-    .btn,
-    input[type="submit"] {
-        border-radius: 12px;
-        font-weight: 500;
-        padding: 8px 18px;
-        border: none;
-    }
+        .btn,
+        input[type="submit"] {
+            border-radius: 12px;
+            font-weight: 500;
+            padding: 8px 18px;
+            border: none;
+        }
 
-    a.btn-primary {
-        background-color: #0dcaf0;
-        color: #000;
-    }
+        a.btn-primary {
+            background-color: #0dcaf0;
+            color: #000;
+        }
 
-    .d-table table {
-        background: #ffffff;
-        border-radius: 10px;
-        overflow: hidden;
-        color: #000;
-    }
+        .d-table table {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #000;
+        }
 
-    .d-table thead {
-        background: #0d6efd;
-        color: #fff;
-        font-weight: bold;
-    }
+        .d-table thead {
+            background: #0d6efd;
+            color: #fff;
+            font-weight: bold;
+        }
 
-    .d-table tbody tr:hover {
-        background: rgba(49, 92, 92, 0.1);
-        transition: 0.2s;
-    }
+        .d-table tbody tr:hover {
+            background: rgba(49, 92, 92, 0.1);
+            transition: 0.2s;
+        }
 
-    table td form {
-        display: inline-block;
-        margin: 0 3px;
-    }
+        table td form {
+            display: inline-block;
+            margin: 0 3px;
+        }
+
+
+        .toggle {
+            width: 25px;
+            height: 25px;
+            border: 2px solid #333;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .toggle input {
+            display: none;
+        }
+
+        .toggle span::before {
+            content: "✖";
+            /* حالت پیشفرض */
+            color: red;
+        }
+
+        .toggle input:checked+span::before {
+            content: "✔";
+            /* وقتی کلیک شد */
+            color: green;
+        }
+    </style>
+
+    <label class="custom-checkbox">
+        <input type="checkbox">
+        <span></span>
+    </label>
     </style>
 </head>
 
@@ -138,9 +173,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <th scope="col">ایمیل</th>
                                 <th scope="col">وضعیت</th>
                                 <?php
-                                    echo "<th scope='col'>";
-                                    echo "تاریخ:".$date;
-                                    echo "</th>";
+                                echo "<th scope='col'>";
+                                echo "تاریخ:" . $date;
+                                echo "</th>";
                                 ?>
                             </tr>
                         </thead>
@@ -159,42 +194,34 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 $userid = $user["user_id"];
                                 $sql = "SELECT * FROM `attendances` WHERE
                                 `user_id`={$userid} AND `class_id`=$class_id AND `date`='$date'";
-                                $hoozor="";
-                                $takhir="";
-                                $qeybat="";
+                                $hoozor = "";
                                 $temp = $conn->query($sql);
                                 if ($temp->num_rows == 0) {
-                                    $hoozor=" selected";
-                                }
-                                else {
+                                    $hoozor = " selected";
+                                } else {
                                     $temp = $temp->fetch_assoc();
                                     switch ($temp['status']) {
-                                    case 'حاضر':
-                                        $hoozor=" selected";
-                                        break;
-                                    case 'تاخیر':
-                                        $takhir= " selected";
-                                        break;
-                                    case 'غیبت':
-                                        $qeybat=" selected";
-                                        break;
-                                    default:
-                                        $hoozor=" selected";
-                                        break;
-                                }
+                                        case 'حاضر':
+                                            $hoozor = " checked";
+                                            break;
+                                        default:
+                                            $hoozor = "";
+                                            break;
+                                    }
                                 }
                                 echo "<tr>";
                                 echo "<th scope='row'>{$i}</th>";
                                 echo "<td>$name</td>";
                                 echo "<td>$email</td>";
+                                echo "<input type='hidden' name='id[$i]' value='$userid'>";
                                 echo "<td>
-                                <select name='status$i' class='form-select'>
-                                <option value='حاضر' $hoozor>حضور</option>
-                                <option value='غیبت' $qeybat>غایب</option>
-                                <option value='تاخیر' $takhir>تاخیر</option>
-                                </select>
+                                <label class='toggle'>
+                                <input type='hidden' name='status[$i]' value='no'>
+                                <input type='checkbox' name='status[$i]' value='yes' $hoozor>
+                                <span></span>
+                                </label>
                                 </td>";
-                                echo "<input type='hidden' value='$userid' name='userid$i'>";
+
                                 echo "</tr>";
                                 $i++;
                             }

@@ -13,23 +13,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $templastweek = new DateTime('-8 days');
         if ($temp >= $templastweek && $temp <= $tempnow) {
             while ($i > 0) {
-                $studentid = $_POST["userid$i"];
-                $status = $_POST["status$i"];
+                $studentid = $_POST["id"][$i];
+                $status = $_POST["status"][$i] == "yes" ? "حاضر" : "غیبت";
+
                 $sql = "SELECT * FROM `attendances` WHERE `user_id`={$studentid} AND `class_id`=$class_id AND `date`='$date'";
                 $res = $conn->query($sql);
+
                 if ($res->num_rows == 0) {
                     $sql = "INSERT INTO `attendances` 
                 VALUES (NULL, '$studentid', '$class_id', '$date', '$status', '$now');";
-                    $res = $conn->query($sql);
+                    $conn->query($sql);
                 } else {
                     $res = $res->fetch_assoc();
                     $updateid = $res["id"];
                     $sql = "UPDATE `attendances` SET `status` = '$status', `created_at` = '$now' 
                 WHERE `attendances`.`id` = $updateid";
-                    $res = $conn->query($sql);
+                    $conn->query($sql);
                 }
+
                 $i--;
             }
+
             header("Location: attend.php");
             exit();
         } else {

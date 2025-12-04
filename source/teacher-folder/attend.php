@@ -160,7 +160,7 @@ include 'isteacher.php';
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
-                            echo "<td>{$className}</td>";
+                            echo "<td>{$classdescription}</td>";
                             echo "<td></td>";
                             $date = new DateTime($classDate);
                             $today = new DateTime('today');
