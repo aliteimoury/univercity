@@ -161,7 +161,7 @@ include 'isteacher.php';
                             echo "<tr>";
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
-                            echo "<td>{$className}</td>";
+                            echo "<td>{$classdescription}</td>";
                             $date = new DateTime($classDate);
                             $today = new DateTime('today');
                             $lastWeek = new DateTime('-8 days');
