@@ -42,43 +42,41 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <style>
-        body {
-            background-color: #d4edda;
-            /* سبز روشن مشابه bg-success bg-opacity-25 */
-        }
+    body {
+        background-color: #d4edda;
+    }
 
-        .card {
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            width: 24rem;
-        }
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 24rem;
+    }
 
-        .card h2 {
-            font-weight: 600;
-            color: #0d6efd;
-        }
+    .card h2 {
+        font-weight: 600;
+        color: #0d6efd;
+    }
 
-        .form-label {
-            font-weight: 500;
-        }
+    .form-label {
+        font-weight: 500;
+    }
 
-        .btn-success {
-            border-radius: 8px;
-            font-weight: 500;
-        }
+    .btn-success {
+        border-radius: 8px;
+        font-weight: 500;
+    }
 
-        .btn-primary {
-            border-radius: 8px;
-            width: 100%;
-        }
+    .btn-primary {
+        border-radius: 8px;
+        width: 100%;
+    }
 
-        .status-message {
-            text-align: center;
-            margin-top: 10px;
-            font-weight: 500;
-            color: #198754;
-            /* رنگ سبز Bootstrap برای موفقیت */
-        }
+    .status-message {
+        text-align: center;
+        margin-top: 10px;
+        font-weight: 500;
+        color: #198754;
+    }
     </style>
 </head>
 

@@ -291,18 +291,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 ?>
                 <button type='submit' class='btn btn-primary' name='delete'>بازگشت</button>
             </form>
-            <!-- <form method='POST' action='addstudent.php' style='display:inline; margin-left:5px;' class='mt-3'>
-                <?php
-                // echo "<input type='hidden' name='classid' value='$class_id'>";
-                // echo "<input type='hidden' name='userid' value='$teacherid'>";
-                ?>
-                <button type='submit' class='btn btn-primary' name='delete'>اضافه کردن دانشجو</button>
-            </form> -->
         </div>
-
     </div>
-
-
 </body>
 
 </html>

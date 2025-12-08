@@ -29,76 +29,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="class.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <style>
-<<<<<<< HEAD
-        .divmain {
-            background-color: whitesmoke;
-            border-radius: 15px;
-        }
-
-        .line {
-            display: block;
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.4);
-            margin: 20px 0;
-        }
-
-        .btn,
-        input[type="submit"] {
-            border-radius: 12px;
-            font-weight: 500;
-            padding: 8px 18px;
-            border: none;
-        }
-
-        a.btn-primary {
-            background-color: #0dcaf0;
-            color: #000;
-        }
-
-        .d-table table {
-            background: #ffffff;
-            border-radius: 10px;
-            overflow: hidden;
-            color: #000;
-        }
-
-        .d-table thead {
-            background: #0d6efd;
-            color: #fff;
-            font-weight: bold;
-        }
-
-        .d-table tbody tr:hover {
-            background: rgba(49, 92, 92, 0.1);
-            transition: 0.2s;
-        }
-
-        table td form {
-            display: inline-block;
-            margin: 0 3px;
-        }
-
-        .ok {
-            background-color: #28a745;
-            color: #fff;
-        }
-
-        .deniy {
-            background-color: red;
-            color: white;
-        }
-
-        .ok {
-            background-color: #28a745;
-            color: #fff;
-        }
-=======
     .divmain {
         background-color: whitesmoke;
         border-radius: 15px;
     }
->>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
 
     .line {
         display: block;
@@ -142,16 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     table td form {
         display: inline-block;
         margin: 0 3px;
-    }
-
-    .ok {
-        background-color: #28a745;
-        color: #fff;
-    }
-
-    .deniy {
-        background-color: red;
-        color: white;
     }
 
     .ok {
@@ -241,11 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         echo "<td>{$user['description']}</td>";
                         echo "<td></td>";
 
-                        // گرفتن حضور و مرتب کردن طبق تاریخ
                         $tempsql = "SELECT `status` FROM `attendances`WHERE `user_id`=$studentid AND `class_id`=$classid ORDER BY `date` ASC";
                         $tempres = $conn->query($tempsql);
 
-                        // تبدیل نتایج به آرایه وضعیت‌ها
                         $sessions = [];
                         while ($tempuser = $tempres->fetch_assoc()) {
                             switch ($tempuser['status']) {
@@ -260,11 +182,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     break;
                             }
                         }
-
-                        // تعداد ستون‌ها (مثلاً 10 جلسه ثابت)
                         $maxSessions = 10;
-
-                        // چاپ ستون‌های جلسات طبق شناسه جلسه
                         for ($i = 0; $i < $maxSessions; $i++) {
                             if (isset($sessions[$i])) {
                                 echo "<td>{$sessions[$i]}</td>";
@@ -272,22 +190,15 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo "<td>-</td>";
                             }
                         }
-
                         echo "</tr>";
-
-
                         ?>
-
                     </tbody>
                 </table>
             </div>
             <span class="line"></span>
             <a class="btn btn-primary" href="class.php" role="button">بازگشت</a>
         </div>
-
     </div>
-
-
 </body>
 
 </html>

@@ -55,7 +55,6 @@ include 'isadmin.php';
                         <li><a href="#" class="a-tag">لیست کاربران</a></li>
                         <li><a href="manage_class.php" class="a-tag">مدیریت کلاس ها</a></li>
                         <li>موقت است این</li>
-
                     </ul>
                 </li>
                 <li>
@@ -68,11 +67,7 @@ include 'isadmin.php';
             <a href="suspended.php" class="btn btn-primary mt-3" role="button">کاربران معلق</a>
             <a href="waiting.php" class="btn btn-primary mt-3" role="button">کاربران در انتظار تایید</a>
         </div>
-
-
     </div>
-
-
 </body>
 
 </html>

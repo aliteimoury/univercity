@@ -6,7 +6,7 @@ body {
   direction: rtl;
 
 }
-/* div بالا */
+
 .divheader {
   background-color: #315c5c; 
   color: white;
@@ -26,14 +26,14 @@ body {
   border-radius: 50%;
 }
 
-/* صفحه اصلی */
+
 .div-container {
   display: flex;
   flex-direction: row;
 }
 
 
-/* ستون سمت راست */
+
 .divmenu {
   width: 230px;
 background-color: #f8f9fa;
@@ -42,14 +42,13 @@ background-color: #f8f9fa;
   height: 100vh;
 }
 
-/* لیست اصلی */
 .divmenu ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* آیتم‌های اصلی */
+
 .divmenu li {
   background-color: #e6f0ef;
   margin-bottom: 6px;
@@ -63,7 +62,7 @@ background-color: #f8f9fa;
   background-color: #d0e2e0;
 }
 
-/* زیرمنو */
+
 .divmenu li ul {
   display: none;
   background-color: #f2f8f7;
@@ -72,7 +71,7 @@ background-color: #f8f9fa;
   padding: 5px 10px;
 }
 
-/* وقتی موس روی آیتم رفت زیرمنو باز شه */
+
 .divmenu li:hover ul {
   display: block;
 }
