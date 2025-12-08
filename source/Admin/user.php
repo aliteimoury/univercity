@@ -10,6 +10,24 @@ include 'isadmin.php';
     <title>bostan</title>
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
+    <style>
+    .divmain {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 15px;
+    }
+
+    .divmain a.btn {
+        margin-right: 10px;
+        margin-bottom: 5px;
+    }
+
+    .btn-primary {
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-weight: 500;
+    }
+    </style>
 
 </head>
 
@@ -45,11 +63,12 @@ include 'isadmin.php';
                 </li>
             </ul>
         </div>
-        <div>
+        <div class="divmain">
             <a href="activuser.php" class="btn btn-primary mt-3" role="button">کاربران فعال</a>
             <a href="suspended.php" class="btn btn-primary mt-3" role="button">کاربران معلق</a>
             <a href="waiting.php" class="btn btn-primary mt-3" role="button">کاربران در انتظار تایید</a>
         </div>
+
 
     </div>
 

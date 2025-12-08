@@ -20,7 +20,6 @@ include 'isteacher.php';
         border-radius: 15px;
     }
 
-    /* خط جداکننده */
     .line {
         display: block;
         width: 100%;

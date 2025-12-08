@@ -24,48 +24,119 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <style>
-        .btnmanage {
+    .btnmanage {
 
-            color: rgb(69, 255, 6);
-            border: rgb(69, 255, 6) 1px solid;
-        }
+        color: rgb(69, 255, 6);
+        border: rgb(69, 255, 6) 1px solid;
+    }
 
-        .btnmanage:hover {
-            background-color: rgb(69, 255, 6);
-            border: rgb(69, 255, 6) 1px solid;
-        }
+    .btnmanage:hover {
+        background-color: rgb(69, 255, 6);
+        border: rgb(69, 255, 6) 1px solid;
+    }
+
+    .divmain {
+        background-color: #f8f9fa;
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .line {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(0, 123, 255, 0.2);
+        margin: 20px 0;
+    }
+
+    .d-table table {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        color: #000;
+    }
+
+    .d-table thead {
+        background-color: #0d6efd;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .d-table tbody tr:hover {
+        background-color: rgba(13, 110, 253, 0.1);
+        transition: 0.2s;
+    }
+
+    table td form {
+        display: inline-block;
+        margin: 0 3px;
+    }
+
+    .btn {
+        border-radius: 12px;
+        font-weight: 500;
+        padding: 6px 14px;
+        border: none;
+    }
+
+    .btnmanage {
+        color: #1fa400;
+        border: 1px solid #1fa400;
+    }
+
+    .btnmanage:hover {
+        background-color: #1fa400;
+        border: 1px solid #1fa400;
+    }
+
+    button[type="button"] {
+        border-radius: 12px;
+        padding: 5px 10px;
+        font-weight: 500;
+        border: 1px solid #0d6efd;
+        background-color: #fff;
+        color: #0d6efd;
+        cursor: pointer;
+    }
+
+    button[type="button"]:hover {
+        background-color: #0d6efd;
+        color: #fff;
+    }
     </style>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
 
-            document.getElementById("form1").addEventListener("submit", function(e) {
+        document.getElementById("form1").addEventListener("submit", function(e) {
 
-                // همه چک باکس‌ها
-                let selected = document.querySelectorAll('input[name="Deletid[]"]:checked');
+            // همه چک باکس‌ها
+            let selected = document.querySelectorAll('input[name="Deletid[]"]:checked');
 
-                // اگر چیزی انتخاب نشده باشد
-                if (selected.length === 0) {
-                    e.preventDefault();
-                    alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
-                    return;
-                }
+            // اگر چیزی انتخاب نشده باشد
+            if (selected.length === 0) {
+                e.preventDefault();
+                alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
+                return;
+            }
 
-                // پیام تایید حذف
-                let confirmDelete = confirm("آیا از حذف موارد انتخاب شده مطمئن هستید؟");
+            // پیام تایید حذف
+            let confirmDelete = confirm("آیا از حذف موارد انتخاب شده مطمئن هستید؟");
 
-                if (!confirmDelete) {
-                    e.preventDefault(); // جلوگیری از ارسال فرم
-                }
-            });
+            if (!confirmDelete) {
+                e.preventDefault(); // جلوگیری از ارسال فرم
+            }
         });
-        let temp = false;
+    });
+    let temp = false;
 
-        function selectAll() {
-            let checkboxes = document.querySelectorAll('.Check1');
-            checkboxes.forEach(ch => ch.checked = !temp);
-            temp = !temp;
-        }
+    function selectAll() {
+        let checkboxes = document.querySelectorAll('.Check1');
+        checkboxes.forEach(ch => ch.checked = !temp);
+        temp = !temp;
+    }
     </script>
 </head>
 

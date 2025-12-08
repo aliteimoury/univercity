@@ -28,114 +28,140 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <link rel="stylesheet" href="../main.css">
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.rtl.min.css" type="text/css">
     <style>
-        .btnmanage {
+    .divmain {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
 
-            color: rgb(69, 255, 6);
-            border: rgb(69, 255, 6) 1px solid;
-        }
+    .line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: #dee2e6;
+        margin: 15px 0;
+    }
 
-        .btnmanage:hover {
-            background-color: rgb(69, 255, 6);
-            border: rgb(69, 255, 6) 1px solid;
-        }
+    .two-panel-container {
+        display: flex;
+        gap: 15px;
+        width: 100%;
+        align-items: flex-start;
+    }
 
-        /* کانتینر والد */
+    .panel {
+        flex: 0 0 50%;
+        max-width: 50%;
+        background: #f8f9fa;
+        border-radius: 8px;
+        padding: 12px;
+    }
+
+    .panel h5 {
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-weight: 600;
+        border-bottom: 1px solid #dee2e6;
+        padding-bottom: 5px;
+    }
+
+    .panel .table {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    button[type="button"] {
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-weight: 500;
+        border: 1px solid #0d6efd;
+        background-color: #fff;
+        color: #0d6efd;
+        cursor: pointer;
+    }
+
+    button[type="button"]:hover {
+        background-color: #0d6efd;
+        color: #fff;
+    }
+
+    .btnmanage {
+        color: rgb(50, 180, 0);
+        border: 1px solid rgb(50, 180, 0);
+    }
+
+    .btnmanage:hover {
+        background-color: rgb(50, 180, 0);
+        color: #fff;
+        border: 1px solid rgb(50, 180, 0);
+    }
+
+    .btn-primary {
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
         .two-panel-container {
-            display: flex;
-            gap: 20px;
-            /* فاصله بین پنل‌ها */
-            width: 100%;
-            box-sizing: border-box;
-            align-items: flex-start;
+            flex-direction: column;
         }
 
-        /* هر پنل دقیقا نصف عرض را می‌گیرد */
         .panel {
-            flex: 0 0 50%;
-            /* ثابت: پایه‌ی 50%، رشد/کوچک شدن غیرفعال */
-            max-width: 50%;
-            box-sizing: border-box;
-            /* تضمین محاسبه درست padding/border */
-            background: #fff;
-            border-radius: 10px;
-            padding: 16px;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            flex: 0 0 100%;
+            max-width: 100%;
         }
-
-        /* اگر خواستی کارت عنوان داشته باشد */
-        .panel h5 {
-            margin-top: 0;
-            margin-bottom: 12px;
-            font-weight: 600;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 8px;
-        }
-
-        /* ریسپانسیو: زیر 768px پنل‌ها ستونی شوند */
-        @media (max-width: 768px) {
-            .two-panel-container {
-                flex-direction: column;
-            }
-
-            .panel {
-                flex: 0 0 100%;
-                max-width: 100%;
-            }
-        }
-
-        /* اگر جدول‌ها فضای داخلی دارند، عرض کامل */
-        .panel .table {
-            margin-bottom: 12px;
-            width: 100%;
-        }
+    }
     </style>
+
     <script>
-        let temp = false;
+    let temp = false;
 
-        function selectAll() {
-            let checkboxes = document.querySelectorAll('.Check1');
-            checkboxes.forEach(ch => ch.checked = !temp);
-            temp = !temp;
-        }
+    function selectAll() {
+        let checkboxes = document.querySelectorAll('.Check1');
+        checkboxes.forEach(ch => ch.checked = !temp);
+        temp = !temp;
+    }
 
-        // وقتی DOM کامل لود شد
-        document.addEventListener("DOMContentLoaded", function() {
+    // وقتی DOM کامل لود شد
+    document.addEventListener("DOMContentLoaded", function() {
 
-            document.getElementById("form1").addEventListener("submit", function(e) {
+        document.getElementById("form1").addEventListener("submit", function(e) {
 
-                let selected = document.querySelectorAll('.Check1:checked');
+            let selected = document.querySelectorAll('.Check1:checked');
 
-                if (selected.length === 0) {
-                    e.preventDefault();
-                    alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
-                }
-
-            });
+            if (selected.length === 0) {
+                e.preventDefault();
+                alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
+            }
 
         });
-        let temp2 = false;
 
-        function selectAll2() {
-            let checkboxes = document.querySelectorAll('.Check2');
-            checkboxes.forEach(ch => ch.checked = !temp2);
-            temp2 = !temp2;
-        }
+    });
+    let temp2 = false;
 
-        // وقتی DOM کامل لود شد
-        document.addEventListener("DOMContentLoaded", function() {
+    function selectAll2() {
+        let checkboxes = document.querySelectorAll('.Check2');
+        checkboxes.forEach(ch => ch.checked = !temp2);
+        temp2 = !temp2;
+    }
 
-            document.getElementById("form2").addEventListener("submit", function(e) {
+    // وقتی DOM کامل لود شد
+    document.addEventListener("DOMContentLoaded", function() {
 
-                let selected = document.querySelectorAll('.Check2:checked');
+        document.getElementById("form2").addEventListener("submit", function(e) {
 
-                if (selected.length === 0) {
-                    e.preventDefault();
-                    alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
-                }
+            let selected = document.querySelectorAll('.Check2:checked');
 
-            });
+            if (selected.length === 0) {
+                e.preventDefault();
+                alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
+            }
 
         });
+
+    });
     </script>
 
 </head>
@@ -226,7 +252,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <thead class="table-light">
                                 <tr>
                                     <th>شماره</th>
-                                    <th scope="col"><button type="button" onclick="selectAll2()">انتخاب همه</button></th>
+                                    <th scope="col"><button type="button" onclick="selectAll2()">انتخاب همه</button>
+                                    </th>
                                     <th>نام و نام خانوادگی</th>
                                     <th>ایمیل</th>
                                 </tr>
