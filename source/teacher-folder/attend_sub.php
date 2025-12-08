@@ -32,10 +32,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         border-radius: 15px;
     }
 
-<<<<<<< HEAD
-=======
-    /* خط جداکننده */
->>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
     .line {
         display: block;
         width: 100%;
@@ -79,8 +75,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         display: inline-block;
         margin: 0 3px;
     }
-<<<<<<< HEAD
-
 
     .toggle {
         width: 25px;
@@ -100,17 +94,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     .toggle span::before {
 
+        content: "✖";
+        color: red;
+    }
+
+    .toggle input:checked+span::before {
+
         content: "✔";
         color: green;
     }
 
-    .toggle input:checked+span::before {
-        content: "✖";
-        color: red;
+    button[type="button"] {
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-weight: 500;
+        border: 1px solid #0d6efd;
+        background-color: #fff;
+        color: #0d6efd;
+        cursor: pointer;
     }
-=======
->>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
+
+    button[type="button"]:hover {
+        background-color: rgb(98, 215, 241);
+        color: #fff;
+    }
     </style>
+    <script>
+    let temp2 = false;
+
+    function selectAll2() {
+        let checkboxes = document.querySelectorAll('.Check2');
+        checkboxes.forEach(ch => ch.checked = !temp2);
+        temp2 = !temp2;
+    }
+    </script>
 </head>
 
 <body>
@@ -136,11 +153,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
-<<<<<<< HEAD
-=======
-                        <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
-                        <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
->>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                         <li><a href="log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="attend.php" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
@@ -175,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <th scope="col">شماره</th>
                                 <th scope="col">نام‌دانشجو</th>
                                 <th scope="col">ایمیل</th>
-                                <th scope="col">وضعیت</th>
+                                <th scope="col"><button type="button" onclick="selectAll2()">انتخاب همه</button></th>
                                 <?php
                                 echo "<th scope='col'>";
                                 echo "تاریخ:" . $date;
@@ -219,19 +231,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo "<td>$email</td>";
                                 echo "<input type='hidden' name='id[$i]' value='$userid'>";
                                 echo "<td>
-<<<<<<< HEAD
                                 <label class='toggle'>
                                 <input type='hidden' name='status[$i]' value='no'>
-                                <input type='checkbox' name='status[$i]' value='yes' $hoozor>
+                                <input type='checkbox' name='status[$i]' value='yes' $hoozor class='Check2'>
                                 <span></span>
                                 </label>
-=======
-                                <select name='status$i' class='form-select'>
-                                <option value='حاضر' $hoozor>حضور</option>
-                                <option value='غیبت' $qeybat>غایب</option>
-                                <option value='تاخیر' $takhir>تاخیر</option>
-                                </select>
->>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                                 </td>";
 
                                 echo "</tr>";
@@ -252,6 +256,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </form>
         </div>
     </div>
+
+
 </body>
 
 </html>

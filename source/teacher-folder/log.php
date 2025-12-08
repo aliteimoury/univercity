@@ -20,10 +20,6 @@ include 'isteacher.php';
         border-radius: 15px;
     }
 
-<<<<<<< HEAD
-=======
-    /* خط جداکننده */
->>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
     .line {
         display: block;
         width: 100%;
@@ -126,7 +122,6 @@ include 'isteacher.php';
                             <th scope="col">شماره</th>
                             <th scope="col">نام کلاس</th>
                             <th scope="col">جمع کل غیبت ها</th>
-                            <th scope="col">جمع کل تاخیر ها</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,9 +136,6 @@ include 'isteacher.php';
                             echo "<td>{$user['name']}</td>";
                             $classId = $user["id"];
                             $sql = "SELECT * FROM `attendances` WHERE `class_id` =$classId AND `status`='غیبت'";
-                            $temp = $conn->query($sql);
-                            echo "<td>$temp->num_rows</td>";
-                            $sql = "SELECT * FROM `attendances` WHERE `class_id` =$classId  AND `status`='تاخیر'";
                             $temp = $conn->query($sql);
                             echo "<td>$temp->num_rows</td>";
                             echo "</tr>";
