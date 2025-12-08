@@ -99,6 +99,11 @@ include 'isteacher.php';
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
+<<<<<<< HEAD
+=======
+                        <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
+                        <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                         <li><a href="log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="#" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
@@ -132,7 +137,6 @@ include 'isteacher.php';
                             <th scope="col">شماره</th>
                             <th scope="col">نام‌کلاس</th>
                             <th scope="col">توضیحات</th>
-                            <th scope="col">جلسه:</th>
                             <th scope="col">اول</th>
                             <th scope="col">دوم</th>
                             <th scope="col">سوم</th>
@@ -161,7 +165,10 @@ include 'isteacher.php';
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
                             echo "<td>{$classdescription}</td>";
+<<<<<<< HEAD
                             echo "<td></td>";
+=======
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                             $date = new DateTime($classDate);
                             $today = new DateTime('today');
                             $lastWeek = new DateTime('-8 days');

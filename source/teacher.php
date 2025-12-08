@@ -36,6 +36,11 @@
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
+<<<<<<< HEAD
+=======
+                        <li><a href="teacher-folder/class.php" class="a-tag">ثبت نام کلاس ها</a></li>
+                        <li><a href="teacher-folder/manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                         <li><a href="teacher-folder/log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="teacher-folder/attend.php" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>

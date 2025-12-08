@@ -20,6 +20,10 @@ include 'isteacher.php';
         border-radius: 15px;
     }
 
+<<<<<<< HEAD
+=======
+    /* خط جداکننده */
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
     .line {
         display: block;
         width: 100%;

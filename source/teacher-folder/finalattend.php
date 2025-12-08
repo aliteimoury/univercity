@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         } else {
             echo "<html>
                     <body style='text-align: center; direction: rtl;'>
-                    <h2>در تاریخ کلاس ثبت کنید</h2>
+                    <h2>ثبت حضور در این تاریخ مجاز نیست</h2>
                     </body>
                 </html>";
             header("Refresh: 2; url=attend.php");

@@ -15,6 +15,7 @@ unset($_SESSION['delettabale']);
     <script src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <style>
+<<<<<<< HEAD:source/Admin/Most Delet/class.php
         .divmain {
             background-color: whitesmoke;
             border-radius: 15px;
@@ -64,6 +65,57 @@ unset($_SESSION['delettabale']);
             display: inline-block;
             margin: 0 3px;
         }
+=======
+    .divmain {
+        background-color: whitesmoke;
+        border-radius: 15px;
+    }
+
+    /* خط جداکننده */
+    .line {
+        display: block;
+        width: 100%;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.4);
+        margin: 20px 0;
+    }
+
+    .btn,
+    input[type="submit"] {
+        border-radius: 12px;
+        font-weight: 500;
+        padding: 8px 18px;
+        border: none;
+    }
+
+    a.btn-primary {
+        background-color: #0dcaf0;
+        color: #000;
+    }
+
+    .d-table table {
+        background: #ffffff;
+        border-radius: 10px;
+        overflow: hidden;
+        color: #000;
+    }
+
+    .d-table thead {
+        background: #0d6efd;
+        color: #fff;
+        font-weight: bold;
+    }
+
+    .d-table tbody tr:hover {
+        background: rgba(49, 92, 92, 0.1);
+        transition: 0.2s;
+    }
+
+    table td form {
+        display: inline-block;
+        margin: 0 3px;
+    }
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b:source/teacher-folder/class.php
     </style>
 
 </head>

@@ -32,6 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         border-radius: 15px;
     }
 
+<<<<<<< HEAD
+=======
+    /* خط جداکننده */
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
     .line {
         display: block;
         width: 100%;
@@ -75,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         display: inline-block;
         margin: 0 3px;
     }
+<<<<<<< HEAD
 
 
     .toggle {
@@ -103,6 +108,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         content: "✖";
         color: red;
     }
+=======
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
     </style>
 </head>
 
@@ -129,6 +136,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <li>📘 امور آموزشی
                     <ul>
                         <li>اطلاع رسانی </li>
+<<<<<<< HEAD
+=======
+                        <li><a href="class.php" class="a-tag">ثبت نام کلاس ها</a></li>
+                        <li><a href="manage-class.php" class="a-tag">مدریت کلاس ها</a></li>
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                         <li><a href="log.php" class="a-tag">گزارشات</a></li>
                         <li><a href="attend.php" class="a-tag">حضور و غیاب دروس</a></li>
                     </ul>
@@ -207,11 +219,19 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo "<td>$email</td>";
                                 echo "<input type='hidden' name='id[$i]' value='$userid'>";
                                 echo "<td>
+<<<<<<< HEAD
                                 <label class='toggle'>
                                 <input type='hidden' name='status[$i]' value='no'>
                                 <input type='checkbox' name='status[$i]' value='yes' $hoozor>
                                 <span></span>
                                 </label>
+=======
+                                <select name='status$i' class='form-select'>
+                                <option value='حاضر' $hoozor>حضور</option>
+                                <option value='غیبت' $qeybat>غایب</option>
+                                <option value='تاخیر' $takhir>تاخیر</option>
+                                </select>
+>>>>>>> 370afad60205f77a8014a0d4f496fa853215093b
                                 </td>";
 
                                 echo "</tr>";
