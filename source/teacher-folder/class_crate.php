@@ -1,31 +1,22 @@
 <?php
-include 'isadmin.php';
-$status = "";
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    if (isset($_POST['tabalename']) && isset($_POST['date']) && isset($_POST['description']) && isset($_POST['userid'])) {
-        $teacherid = $_POST['userid'];
-        $tabalename = $_POST['tabalename'];
-        $date = $_POST['date'];
-        $description = $_POST['description'];
-
-        $sql = "INSERT INTO `classes` (`id`, `name`, `schedule`, `teacher_id`, `description`) 
-        VALUES (NULL, '$tabalename', '$date', '$teacherid', '$description')";
-        $result = $conn->query($sql);
-        if ($result) {
-            $status = "ثبت کلاس با موفقت انجام شد";
-        } else {
-            $status = "مشکلی در ثبت کلاس پیش امده است";
-        }
-    } else if (isset($_POST['userid'])) {
-        $teacherid = $_POST["userid"];
-    } else {
-        header("Location: ../admin.php");
-        exit();
-    }
-} else {
-    header("Location: ../admin.php");
-    exit();
-}
+  include 'isteacher.php';
+  $status="";
+  if ($_SERVER['REQUEST_METHOD']=="POST") {
+    $tabalename=trim($_POST['tabalename']);
+    $dateclass=$_POST['date'];
+    $teacherid=$_SESSION['user_id'];
+    $description=$_POST['description'];
+    $sql="INSERT INTO `classes`
+    VALUES (NULL, '$tabalename', '$dateclass', '$teacherid','$description')";
+    $res=$conn->query($sql);
+        
+    if ($res) {
+      $status="ثبت با موفقیت انجام شد.";
+    }else{
+      $status="در ثبت مشکلی پیس امده است.";
+      }
+        
+  }
 ?>
 <!DOCTYPE html>
 <html lang="fa">
@@ -89,9 +80,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <label class="form-label">تاریخ:</label>
                 <input type="date" class="form-control" required name="date">
             </div>
-            <?php
-            echo "<input type='hidden' name='userid' value='$teacherid'>";
-            ?>
+
             <div>
                 <label class="form-label">توضیحات (اختیاری):</label>
                 <input type="text" class="form-control" name="description" placeholder="مثال: کلاس آنلاین">
@@ -99,16 +88,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             <button type="submit" class="btn btn-success mt-2">ثبت</button>
         </form>
+
         <div class="status-message">
             <?php echo $status; ?>
         </div>
 
-        <form method='POST' action='class.php' style='display:inline; margin-left:5px;' class='mt-3'>
-            <?php
-            echo "<input type='hidden' name='userid' value='$teacherid'>";
-            ?>
-            <button type='submit' class='btn btn-primary' name='delete'>بازگشت</button>
-        </form>
+        <a class="btn btn-primary mt-3" href="class.php" role="button">بازگشت</a>
     </div>
 
 </body>

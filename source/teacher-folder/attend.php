@@ -19,7 +19,6 @@ include 'isteacher.php';
         border-radius: 15px;
     }
 
-    /* خط جداکننده */
     .line {
         display: block;
         width: 100%;
@@ -132,7 +131,6 @@ include 'isteacher.php';
                             <th scope="col">شماره</th>
                             <th scope="col">نام‌کلاس</th>
                             <th scope="col">توضیحات</th>
-                            <th scope="col">جلسه:</th>
                             <th scope="col">اول</th>
                             <th scope="col">دوم</th>
                             <th scope="col">سوم</th>
@@ -161,20 +159,19 @@ include 'isteacher.php';
                             echo "<th scope='row'>{$i}</th>";
                             echo "<td>{$className}</td>";
                             echo "<td>{$classdescription}</td>";
-                            echo "<td></td>";
                             $date = new DateTime($classDate);
                             $today = new DateTime('today');
                             $lastWeek = new DateTime('-8 days');
-                            
+
                             for ($j = 0; $j < 10; $j++) {
                                 if ($date >= $lastWeek && $date <= $today) {
-                                        $btnstlye = 'ok';
-                                        $btnstatus='';
-                                    } else {
+                                    $btnstlye = 'ok';
+                                    $btnstatus = '';
+                                } else {
 
-                                        $btnstlye = 'deniy';
-                                        $btnstatus='disabled';
-                                    }
+                                    $btnstlye = 'deniy';
+                                    $btnstatus = 'disabled';
+                                }
                                 echo "<td>
                                 <form action='attend_sub.php' method='post' style='display:inline; margin-left:5px;'>
                                 <input type='hidden' name='date' value='{$date->format('Y-m-d')}'>

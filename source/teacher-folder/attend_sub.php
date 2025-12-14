@@ -76,7 +76,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         margin: 0 3px;
     }
 
-
     .toggle {
         width: 25px;
         height: 25px;
@@ -95,15 +94,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     .toggle span::before {
 
+        content: "✖";
+        color: red;
+    }
+
+    .toggle input:checked+span::before {
+
         content: "✔";
         color: green;
     }
 
-    .toggle input:checked+span::before {
-        content: "✖";
-        color: red;
+    button[type="button"] {
+        border-radius: 6px;
+        padding: 4px 10px;
+        font-weight: 500;
+        border: 1px solid #0d6efd;
+        background-color: #fff;
+        color: #0d6efd;
+        cursor: pointer;
+    }
+
+    button[type="button"]:hover {
+        background-color: rgb(98, 215, 241);
+        color: #fff;
     }
     </style>
+    <script>
+    let temp2 = false;
+
+    function selectAll2() {
+        let checkboxes = document.querySelectorAll('.Check2');
+        checkboxes.forEach(ch => ch.checked = !temp2);
+        temp2 = !temp2;
+    }
+    </script>
 </head>
 
 <body>
@@ -163,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 <th scope="col">شماره</th>
                                 <th scope="col">نام‌دانشجو</th>
                                 <th scope="col">ایمیل</th>
-                                <th scope="col">وضعیت</th>
+                                <th scope="col"><button type="button" onclick="selectAll2()">انتخاب همه</button></th>
                                 <?php
                                 echo "<th scope='col'>";
                                 echo "تاریخ:" . $date;
@@ -209,7 +233,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 echo "<td>
                                 <label class='toggle'>
                                 <input type='hidden' name='status[$i]' value='no'>
-                                <input type='checkbox' name='status[$i]' value='yes' $hoozor>
+                                <input type='checkbox' name='status[$i]' value='yes' $hoozor class='Check2'>
                                 <span></span>
                                 </label>
                                 </td>";
@@ -232,6 +256,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </form>
         </div>
     </div>
+
+
 </body>
 
 </html>

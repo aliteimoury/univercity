@@ -112,21 +112,18 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         document.getElementById("form1").addEventListener("submit", function(e) {
 
-            // همه چک باکس‌ها
             let selected = document.querySelectorAll('input[name="Deletid[]"]:checked');
 
-            // اگر چیزی انتخاب نشده باشد
             if (selected.length === 0) {
                 e.preventDefault();
                 alert("لطفاً حداقل یک گزینه را انتخاب کنید.");
                 return;
             }
 
-            // پیام تایید حذف
             let confirmDelete = confirm("آیا از حذف موارد انتخاب شده مطمئن هستید؟");
 
             if (!confirmDelete) {
-                e.preventDefault(); // جلوگیری از ارسال فرم
+                e.preventDefault();
             }
         });
     });
@@ -179,9 +176,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         <thead>
                             <tr>
                                 <th scope="col">شماره</th>
-                                <th scope="col"><button type="button" onclick="selectAll()">انتخاب همه</button></th>
                                 <th scope="col">نام و نام خانوادگی</th>
                                 <th scope="col">ایمیل</th>
+                                <th scope="col"><button type="button" onclick="selectAll()">انتخاب همه</button></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -196,9 +193,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             while ($user = $res->fetch_assoc()) {
                                 echo "<tr>";
                                 echo "<th scope='row'>{$i}</th>";
-                                echo "<td><input type='checkbox' value='{$user['u_id']}' name='Deletid[]' class='Check1'></td>";
                                 echo "<td>{$user['name']}</td>";
                                 echo "<td>{$user['email']}</td>";
+                                echo "<td><input type='checkbox' value='{$user['u_id']}' name='Deletid[]' class='Check1'></td>";
                                 echo "</tr>";
                                 $i++;
                             }

@@ -124,7 +124,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         temp = !temp;
     }
 
-    // وقتی DOM کامل لود شد
     document.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById("form1").addEventListener("submit", function(e) {
@@ -147,7 +146,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         temp2 = !temp2;
     }
 
-    // وقتی DOM کامل لود شد
     document.addEventListener("DOMContentLoaded", function() {
 
         document.getElementById("form2").addEventListener("submit", function(e) {
@@ -207,9 +205,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <thead class="table-light">
                                 <tr>
                                     <th>شماره</th>
-                                    <th scope="col"><button type="button" onclick="selectAll()">انتخاب همه</button></th>
                                     <th>نام و نام خانوادگی</th>
                                     <th>ایمیل</th>
+                                    <th scope="col"><button type="button" onclick="selectAll()">انتخاب همه</button></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -230,9 +228,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                     }
                                     echo "<tr>";
                                     echo "<th scope='row'>{$i}</th>";
-                                    echo "<td><input type='checkbox' value='{$user['id']}' name='addid[]' class='Check1'></td>";
                                     echo "<td>{$user['name']}</td>";
                                     echo "<td>{$user['email']}</td>";
+                                    echo "<td><input type='checkbox' value='{$user['id']}' name='addid[]' class='Check1'></td>";
                                     echo "</tr>";
                                     $i++;
                                 }
@@ -252,10 +250,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <thead class="table-light">
                                 <tr>
                                     <th>شماره</th>
-                                    <th scope="col"><button type="button" onclick="selectAll2()">انتخاب همه</button>
                                     </th>
                                     <th>نام و نام خانوادگی</th>
                                     <th>ایمیل</th>
+                                    <th scope="col"><button type="button" onclick="selectAll2()">انتخاب همه</button>
                                 </tr>
                             </thead>
                             <tbody>
@@ -268,9 +266,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                         $user = $res->fetch_assoc();
                                         echo "<tr>";
                                         echo "<th scope='row'>{$i}</th>";
-                                        echo "<td><input type='checkbox' value='{$user['id']}' name='addid[]' class='Check2'></td>";
                                         echo "<td>{$user['name']}</td>";
                                         echo "<td>{$user['email']}</td>";
+                                        echo "<td><input type='checkbox' value='{$user['id']}' name='addid[]' class='Check2'></td>";
                                         echo "</tr>";
                                         $i++;
                                     }
@@ -293,18 +291,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 ?>
                 <button type='submit' class='btn btn-primary' name='delete'>بازگشت</button>
             </form>
-            <!-- <form method='POST' action='addstudent.php' style='display:inline; margin-left:5px;' class='mt-3'>
-                <?php
-                // echo "<input type='hidden' name='classid' value='$class_id'>";
-                // echo "<input type='hidden' name='userid' value='$teacherid'>";
-                ?>
-                <button type='submit' class='btn btn-primary' name='delete'>اضافه کردن دانشجو</button>
-            </form> -->
         </div>
-
     </div>
-
-
 </body>
 
 </html>
