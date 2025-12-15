@@ -1,7 +1,7 @@
 <?php
 include 'isteacher.php';
-$log=new log('../Log/teacherlog');
-$log->log(text: 'Teacher ('.$_SESSION['username'].') With email{'.$_SESSION['email'].'} visit they log');
+$log = new log('../Log/teacherlog');
+$log->log(text: 'Teacher (' . $_SESSION['username'] . ') With email{' . $_SESSION['user_email'] . '} visit they log');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,54 +17,54 @@ $log->log(text: 'Teacher ('.$_SESSION['username'].') With email{'.$_SESSION['ema
 
 
     <style>
-    .divmain {
-        background-color: whitesmoke;
-        border-radius: 15px;
-    }
+        .divmain {
+            background-color: whitesmoke;
+            border-radius: 15px;
+        }
 
-    .line {
-        display: block;
-        width: 100%;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.4);
-        margin: 20px 0;
-    }
+        .line {
+            display: block;
+            width: 100%;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.4);
+            margin: 20px 0;
+        }
 
-    .btn,
-    input[type="submit"] {
-        border-radius: 12px;
-        font-weight: 500;
-        padding: 8px 18px;
-        border: none;
-    }
+        .btn,
+        input[type="submit"] {
+            border-radius: 12px;
+            font-weight: 500;
+            padding: 8px 18px;
+            border: none;
+        }
 
-    a.btn-primary {
-        background-color: #0dcaf0;
-        color: #000;
-    }
+        a.btn-primary {
+            background-color: #0dcaf0;
+            color: #000;
+        }
 
-    .d-table table {
-        background: #ffffff;
-        border-radius: 10px;
-        overflow: hidden;
-        color: #000;
-    }
+        .d-table table {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            color: #000;
+        }
 
-    .d-table thead {
-        background: #0d6efd;
-        color: #fff;
-        font-weight: bold;
-    }
+        .d-table thead {
+            background: #0d6efd;
+            color: #fff;
+            font-weight: bold;
+        }
 
-    .d-table tbody tr:hover {
-        background: rgba(49, 92, 92, 0.1);
-        transition: 0.2s;
-    }
+        .d-table tbody tr:hover {
+            background: rgba(49, 92, 92, 0.1);
+            transition: 0.2s;
+        }
 
-    table td form {
-        display: inline-block;
-        margin: 0 3px;
-    }
+        table td form {
+            display: inline-block;
+            margin: 0 3px;
+        }
     </style>
 </head>
 
