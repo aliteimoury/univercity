@@ -1,4 +1,5 @@
 <?php
+include "Log/Log.php";
 $host = "localhost";
 $username = "root";
 $password = "";

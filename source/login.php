@@ -1,5 +1,7 @@
 <?php
 include 'Database-connect.php';
+$log = new Log('Log/login');
+
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
@@ -22,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه اصلی...</p>
                     </body>
                 </html>";
+            $log->log("Successful login" . $email);
             header("Refresh: 2; url=Role.php");
             exit();
         } else {
@@ -31,6 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
+            $log->log("Enter wrong password:" . $email);
             header("Refresh: 2; url=login.html");
             exit();
         }
@@ -54,6 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه اصلی...</p>
                     </body>
                 </html>";
+                    $log->log("Successful login" . $email);
+
                     header("Refresh: 2; url=Role.php");
                     exit();
                 } elseif ($user['Status'] == 'انتطار') {
@@ -64,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
+                    $log->log("Attempt to log " . $email . " in with the mode: " . $user['Status']);
                     header("Refresh: 2; url=login.html");
                     exit();
                 } elseif ($user['Status'] == 'معلق') {
@@ -74,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
+                    $log->log("Attempt to log " . $email . " in with the mode: " . $user['Status']);
                     header("Refresh: 2; url=login.html");
                     exit();
                 }
@@ -84,6 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
+                $log->log("Enter wrong password:" . $email);
                 header("Refresh: 2; url=login.html");
                 exit();
             }
@@ -94,6 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ورود...</p>
                     </body>
                 </html>";
+            $log->log("There is no account:" . $email);
             header("Refresh: 2; url=login.html");
             exit();
         }

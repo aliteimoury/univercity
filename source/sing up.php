@@ -1,5 +1,6 @@
 <?php
 include 'Database-connect.php';
+$log = new Log('Log/Sing_up');
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);
@@ -25,8 +26,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه اصلی...</p>
                     </body>
                 </html>";
+                $log->log('Successful registration');
                 header("Refresh: 3; url=login.html");
-
                 exit();
             } else {
                 echo "<html>
@@ -35,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ثبت نام...</p>
                     </body>
                 </html>";
+                $log->log('There was a problem with registration.');
                 header("Refresh: 3; url=sing up.html");
                 exit();
             }
@@ -45,19 +47,20 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <p>در حال انتقال به صفحه ثبت نام...</p>
                     </body>
                 </html>";
+                $log->log("email is already registered.".$email);
             header("Refresh: 3; url=sing up.html");
             exit();
         }
-    }
-    else {
+    } else {
         echo "<html>
                     <body style='text-align: center; direction: rtl;'>
                     <h2>❌ایمیل شما قبلا ثبت شده است</h2>
                     <p>در حال انتقال به صفحه ثبت نام...</p>
                     </body>
                 </html>";
-            header("Refresh: 3; url=sing up.html");
-            exit();
+                $log->log("email is already registered.".$email);
+        header("Refresh: 3; url=sing up.html");
+        exit();
     }
 } else {
     header("Location: sing up.html");
