@@ -33,7 +33,6 @@
     <style>
     body {
         background-color: #d4edda;
-        /* سبز روشن مشابه bg-success bg-opacity-25 */
         display: flex;
         justify-content: center;
         align-items: center;
@@ -76,7 +75,6 @@
         margin-top: 10px;
         font-weight: 500;
         color: #198754;
-        /* رنگ سبز Bootstrap برای موفقیت */
     }
     </style>
 </head>
@@ -86,7 +84,6 @@
     <div class="card p-4">
         <h2 class="text-center mb-4">فرم ثبت دانشجو</h2>
 
-        <!-- فرم ثبت دانشجو -->
         <form class="d-flex flex-column gap-3" action="#" method="POST">
             <div>
                 <label class="form-label">نام دانشجو:</label>

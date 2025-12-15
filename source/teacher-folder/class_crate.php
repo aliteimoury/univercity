@@ -29,7 +29,6 @@
     <style>
     body {
         background-color: #d4edda;
-        /* سبز روشن مشابه bg-success bg-opacity-25 */
     }
 
     .card {
@@ -62,7 +61,6 @@
         margin-top: 10px;
         font-weight: 500;
         color: #198754;
-        /* رنگ سبز Bootstrap برای موفقیت */
     }
     </style>
 </head>
