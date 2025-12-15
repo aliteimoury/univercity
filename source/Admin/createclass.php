@@ -1,6 +1,7 @@
 <?php
 include 'isadmin.php';
 $status = "";
+$log=new log("../Log/Admin_class_add");
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['tabalename']) && isset($_POST['date']) && isset($_POST['description']) && isset($_POST['userid'])) {
         $teacherid = $_POST['userid'];
@@ -13,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $result = $conn->query($sql);
         if ($result) {
             $status = "ثبت کلاس با موفقت انجام شد";
+            $log->log("Admin for Teacher Add class \r\n{".$tabalename."}\r\n{".$date."}\r\n{".$description."}");
         } else {
             $status = "مشکلی در ثبت کلاس پیش امده است";
         }

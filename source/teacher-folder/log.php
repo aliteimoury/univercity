@@ -1,5 +1,7 @@
 <?php
 include 'isteacher.php';
+$log=new log('../Log/teacherlog');
+$log->log(text: 'Teacher ('.$_SESSION['username'].') With email{'.$_SESSION['email'].'} visit they log');
 ?>
 <!DOCTYPE html>
 <html lang="en">

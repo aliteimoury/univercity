@@ -1,5 +1,8 @@
 <?php
 include "isteacher.php";
+$log = new log('../Log/teacherattend');
+$log->log(text: 'Teacher (' . $_SESSION['username'] . ') With email{' . $_SESSION['email'] . '} Try to attend');
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["countstudent"]) && isset($_POST["classid"]) && isset($_POST["date"])) {
         $i = $_POST["countstudent"];

@@ -1,12 +1,13 @@
 <?php
 include 'isadmin.php';
-
+$log = new Log('../Log/Admin_Stu_delet');
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST["userid"]) && isset($_POST["class_id"]) && isset($_POST["Deletid"])) {
         $teacherid = $_POST["userid"];
         $class_id = $_POST["class_id"];
         $Deletid = $_POST["Deletid"];
         foreach ($Deletid as $id) {
+            $log->log("Admin delet user from class");
             $sql = "DELETE FROM `enrollments` WHERE `user_id`=$id AND `class_id`=$class_id";
             $result = $conn->query($sql);
         }

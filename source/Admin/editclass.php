@@ -1,5 +1,6 @@
 <?php
 include 'isadmin.php';
+$log=new Log("../Log/Admin_Edit_class");
 $status = "";
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if (isset($_POST['tabalename']) && isset($_POST['date']) && isset($_POST['description']) && isset($_POST['userid']) && isset($_POST['class_id'])) {
@@ -11,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $sql = "UPDATE `classes` SET `name` ='$tabalename' , `schedule`='$date' , `description`='$description'
         WHERE `id` = '$class_id'";
         $result = $conn->query($sql);
+        $log->log("Admin edit class");
         echo '<form id="redirectForm" action="class.php" method="POST">
         <input type="hidden" name="userid" value="' . $teacherid . '">
         </form>
