@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <ul>
                         <li><a href="user.php" class="a-tag">لیست کاربران</a></li>
                         <li><a href="manage_class.php" class="a-tag">مدیریت کلاس ها</a></li>
-                        <li>موقت است این</li>
+                        <li><a href="view_log.php" class="a-tag"> گزارشات سایت </a></li>
 
                     </ul>
                 </li>

@@ -93,7 +93,7 @@ include 'isadmin.php';
                     <ul>
                         <li><a href="user.php" class="a-tag">لیست کاربران</a></li>
                         <li><a href="#" class="a-tag">مدیریت کلاس ها</a></li>
-                        <li>موقت است این</li>
+                        <li><a href="view_log.php" class="a-tag"> گزارشات سایت </a></li>
 
                     </ul>
                 </li>
